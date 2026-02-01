@@ -1,5 +1,9 @@
 import { createGlobalStyle } from 'styled-components'
 
+export const cores = {
+  corTexto: '#E66767'
+}
+
 export const StyleGlobal = createGlobalStyle`
   * {
     padding: 0;
@@ -9,7 +13,7 @@ export const StyleGlobal = createGlobalStyle`
   }
 
   .container {
-    max-width: 1024px;
+    max-width: 1360px;
     width: 100%;
     margin: 0 auto;
   }
