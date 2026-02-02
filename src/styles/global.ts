@@ -1,7 +1,10 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const cores = {
-  corTexto: '#E66767'
+  corTextoPrincipal: '#E66767',
+  corTextoSecundario: '#FFEBD9',
+  corBranco: '#FFFFFF',
+  corFundoPrincipal: '#FFF8F2'
 }
 
 export const StyleGlobal = createGlobalStyle`
@@ -9,12 +12,17 @@ export const StyleGlobal = createGlobalStyle`
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-familly: sans-serif;
+    font-family: Roboto, sans-serif;
+    color: ${cores.corTextoPrincipal}
   }
 
   .container {
-    max-width: 1360px;
+    max-width: 1024px;
     width: 100%;
     margin: 0 auto;
+  }
+
+  body {
+    background-color: ${cores.corFundoPrincipal}
   }
 `
