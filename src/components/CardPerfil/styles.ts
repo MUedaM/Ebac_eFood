@@ -4,6 +4,11 @@ import { cores } from '../../styles/global'
 export const Card = styled.div`
   background-color: ${cores.corTextoPrincipal};
   padding: 8px;
+
+  img {
+    max-height: 168px;
+    width: auto;
+  }
 `
 export const Titulo = styled.h4`
   color: ${cores.corTextoSecundario};
@@ -26,6 +31,7 @@ export const ButtonCarrinho = styled.button`
   display: block;
   width: 100%;
   margin-top: 8px;
+  cursor: pointer;
 
   &:hover {
     color: ${cores.corTextoSecundario};

@@ -1,14 +1,19 @@
 import logo from '../../assets/logos/efoodlogo.png'
 import * as S from './styles'
-import italiana from '../../assets/images/comidas-italiana.png'
 
-const HeaderPerfil = () => (
+type Props = {
+  category: string
+  restaurant: string
+  capa: string
+}
+
+const HeaderPerfil = ({ category, restaurant, capa }: Props) => (
   <>
     <S.HeaderCont>
       <div className="container">
         <S.Titulo>
-          <S.SubTitulo>Restaurantes</S.SubTitulo>
-          <S.Logo>
+          <S.Voltar to="/">Restaurantes</S.Voltar>
+          <S.Logo to="/">
             <img src={logo} alt="logo da loja virtual" />
           </S.Logo>
           <S.Carrinho>0 produtos no carrinho</S.Carrinho>
@@ -17,11 +22,11 @@ const HeaderPerfil = () => (
     </S.HeaderCont>
     <S.ImgText>
       <div className="container">
-        <h3>Italiana</h3>
-        <h2>La Dolce Vita Trattoria</h2>
+        <h3>{category}</h3>
+        <h2>{restaurant}</h2>
       </div>
     </S.ImgText>
-    <S.HeaderImg src={italiana} alt="foto de comida" />
+    <S.HeaderImg src={capa} alt="foto de comida" />
   </>
 )
 

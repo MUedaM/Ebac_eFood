@@ -54,6 +54,7 @@ export const ButtonLink = styled(Link)`
   cursor: pointer;
   border-color: transparent;
   margin-top: 8px;
+  cursor: pointer;
 
   &:hover {
     background-color: ${cores.corTextoSecundario};

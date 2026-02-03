@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import imagebg from '../../assets/images/imagebg.png'
+import { Link } from 'react-router-dom'
 
 export const FooterCont = styled.footer`
   background-image: url(${imagebg});
@@ -25,3 +26,5 @@ export const FooterText = styled.p`
   width: 480px;
   margin: 0 auto;
 `
+
+export const Logo = styled(Link)``

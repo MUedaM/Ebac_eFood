@@ -1,12 +1,12 @@
 import estrela from '../../assets/logos/estrela.png'
 import Tag from '../Tag'
-import { Border, ButtonLink, Card, Descricao, Info, Titulo } from './styles'
+import * as S from './styles'
 
 type Props = {
   destaque: boolean
 
   image: string
-  title: string
+  restaurant: string
   category: string
   score: string
   description: string
@@ -16,36 +16,36 @@ type Props = {
 const CardHome = ({
   destaque,
   image,
-  title,
+  restaurant,
   category,
   score,
   description,
   to
 }: Props) => (
-  <Card>
+  <S.Card>
     {destaque ? (
-      <Info>
+      <S.Info>
         <Tag>Destaque da semana</Tag>
         <Tag>{category}</Tag>
-      </Info>
+      </S.Info>
     ) : (
-      <Info>
+      <S.Info>
         <Tag>{category}</Tag>
-      </Info>
+      </S.Info>
     )}
     <img src={image} alt="imagem de comida" />
-    <Border>
-      <Titulo>
-        <h3>{title}</h3>
+    <S.Border>
+      <S.Titulo>
+        <p>{restaurant}</p>
         <div>
           <span>{score}</span>
           <img src={estrela} alt="logo de estrela" />
         </div>
-      </Titulo>
-      <Descricao>{description}</Descricao>
-      <ButtonLink to={to}>Saiba mais</ButtonLink>
-    </Border>
-  </Card>
+      </S.Titulo>
+      <S.Descricao>{description}</S.Descricao>
+      <S.ButtonLink to={to}>Saiba mais</S.ButtonLink>
+    </S.Border>
+  </S.Card>
 )
 
 export default CardHome

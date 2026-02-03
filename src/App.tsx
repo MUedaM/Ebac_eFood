@@ -1,32 +1,50 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import {
+  createBrowserRouter,
+  Outlet,
+  RouterProvider,
+  useLocation
+} from 'react-router-dom'
 import { StyleGlobal } from './styles/global'
 import Home from './pages/Home'
 import Footer from './container/Footer'
-import Perfil from './pages/Perfil'
+import ItalianaPerfil from './pages/PagesPerfil/Italiana'
+import { useEffect } from 'react'
+import JaponesaPerfil from './pages/PagesPerfil/Japonesa'
+
+function ScrollToTop() {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+
+  return null
+}
+
+function Layout() {
+  return (
+    <>
+      <StyleGlobal />
+      <ScrollToTop />
+      <Outlet />
+      <Footer />
+    </>
+  )
+}
 
 const rotas = createBrowserRouter([
   {
-    path: '/',
-    element: <Home />
-  },
-  {
-    path: '/japonesa',
-    element: <h2>Lista de comida japonesa</h2>
-  },
-  {
-    path: '/italiana',
-    element: <Perfil />
+    element: <Layout />,
+    children: [
+      { path: '/', element: <Home /> },
+      { path: '/japonesa', element: <JaponesaPerfil /> },
+      { path: '/italiana', element: <ItalianaPerfil /> }
+    ]
   }
 ])
 
 function App() {
-  return (
-    <>
-      <StyleGlobal />
-      <RouterProvider router={rotas} />
-      <Footer />
-    </>
-  )
+  return <RouterProvider router={rotas} />
 }
 
 export default App

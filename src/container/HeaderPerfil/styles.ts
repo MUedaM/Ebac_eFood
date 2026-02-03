@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import imagebg from '../../assets/images/imagebg.png'
 import { cores } from '../../styles/global'
+import { Link } from 'react-router-dom'
 
 export const HeaderCont = styled.header`
   background-image: url(${imagebg});
@@ -13,16 +14,24 @@ export const Titulo = styled.div`
   align-items: center;
 `
 
-export const SubTitulo = styled.h4`
+export const Voltar = styled(Link)`
   font-size: 18px;
   font-weight: 900;
   flex: 1;
+  cursor: pointer;
+  text-decoration: none;
+  text-underline-offset: 8px;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `
 
-export const Logo = styled.div`
+export const Logo = styled(Link)`
   flex: 1;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 `
 
 export const Carrinho = styled.p`
