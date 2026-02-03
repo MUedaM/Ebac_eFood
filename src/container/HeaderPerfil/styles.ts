@@ -1,18 +1,19 @@
 import styled from 'styled-components'
 import imagebg from '../../assets/images/imagebg.png'
+import { cores } from '../../styles/global'
 
 export const HeaderCont = styled.header`
   background-image: url(${imagebg});
   padding: 64px 0;
-
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
 `
 
-export const SubTitulo = styled.p`
+export const Titulo = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
+
+export const SubTitulo = styled.h4`
   font-size: 18px;
   font-weight: 900;
   flex: 1;
@@ -29,4 +30,40 @@ export const Carrinho = styled.p`
   font-weight: 900;
   flex: 1;
   text-align: right;
+`
+
+export const ImgText = styled.div`
+  position: absolute;
+  background: rgb(0, 0, 0, 0.5);
+  height: 280px;
+  width: 100%;
+  padding: 25px 0 32px;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+  }
+
+  h3 {
+    color: ${cores.corBranco};
+    font-size: 32px;
+    font-weight: 100;
+  }
+
+  h2 {
+    color: ${cores.corBranco};
+    font-size: 32px;
+    font-weight: 900;
+  }
+`
+
+export const HeaderImg = styled.img`
+  display: block;
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  position: relative;
+  z-index: -1;
 `
