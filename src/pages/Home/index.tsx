@@ -1,9 +1,9 @@
-import Header from '../../container/Header'
+import HeaderHome from '../../container/HeaderHome'
 import ListHome from '../../container/ListHome'
 
 const Home = () => (
   <>
-    <Header />
+    <HeaderHome />
     <div className="container">
       <ListHome />
     </div>

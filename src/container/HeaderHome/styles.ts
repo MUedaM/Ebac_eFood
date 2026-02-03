@@ -4,9 +4,8 @@ import imagebg from '../../assets/images/imagebg.png'
 export const HeaderCont = styled.header`
   background-image: url(${imagebg});
   padding: 8px 16px;
-  text-align: center;
 
-  div {
+  .container {
     display: flex;
     justify-content: center;
     margin-top: 64px;
