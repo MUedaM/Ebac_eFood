@@ -1,9 +1,12 @@
 import HeaderPerfil from '../../container/HeaderPerfil'
+import ListPerfil from '../../container/ListPerfil'
 
 const Perfil = () => (
   <>
     <HeaderPerfil />
-    <h1>Perfil da comida</h1>
+    <div className="container">
+      <ListPerfil />
+    </div>
   </>
 )
 

@@ -1,7 +1,6 @@
 import estrela from '../../assets/logos/estrela.png'
-import InfoButton from '../InfoButton'
 import Tag from '../Tag'
-import { Border, Card, Descricao, Info, Titulo } from './styles'
+import { Border, ButtonLink, Card, Descricao, Info, Titulo } from './styles'
 
 type Props = {
   destaque: boolean
@@ -14,7 +13,7 @@ type Props = {
   to: string
 }
 
-const FoodCard = ({
+const CardHome = ({
   destaque,
   image,
   title,
@@ -44,9 +43,9 @@ const FoodCard = ({
         </div>
       </Titulo>
       <Descricao>{description}</Descricao>
-      <InfoButton to={to} />
+      <ButtonLink to={to}>Saiba mais</ButtonLink>
     </Border>
   </Card>
 )
 
-export default FoodCard
+export default CardHome

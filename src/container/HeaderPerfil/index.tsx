@@ -1,35 +1,27 @@
 import logo from '../../assets/logos/efoodlogo.png'
-import {
-  Carrinho,
-  HeaderCont,
-  HeaderImg,
-  ImgText,
-  Logo,
-  SubTitulo,
-  Titulo
-} from './styles'
+import * as S from './styles'
 import italiana from '../../assets/images/comidas-italiana.png'
 
 const HeaderPerfil = () => (
   <>
-    <HeaderCont>
+    <S.HeaderCont>
       <div className="container">
-        <Titulo>
-          <SubTitulo>Restaurantes</SubTitulo>
-          <Logo>
+        <S.Titulo>
+          <S.SubTitulo>Restaurantes</S.SubTitulo>
+          <S.Logo>
             <img src={logo} alt="logo da loja virtual" />
-          </Logo>
-          <Carrinho>0 produtos no carrinho</Carrinho>
-        </Titulo>
+          </S.Logo>
+          <S.Carrinho>0 produtos no carrinho</S.Carrinho>
+        </S.Titulo>
       </div>
-    </HeaderCont>
-    <ImgText>
+    </S.HeaderCont>
+    <S.ImgText>
       <div className="container">
         <h3>Italiana</h3>
         <h2>La Dolce Vita Trattoria</h2>
       </div>
-    </ImgText>
-    <HeaderImg src={italiana} alt="foto de comida" />
+    </S.ImgText>
+    <S.HeaderImg src={italiana} alt="foto de comida" />
   </>
 )
 
