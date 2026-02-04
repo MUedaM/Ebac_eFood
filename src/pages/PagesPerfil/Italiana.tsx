@@ -1,15 +1,15 @@
 import HeaderPerfil from '../../container/HeaderPerfil'
 import ItalianaList from '../../container/ListPerfil/ItalianaList'
 
-import italiana from '../../assets/images/comidas-italiana.png'
+import { restaurantes } from '../../container/ListHome'
+
+const categoria = restaurantes[1].category
+const restaurante = restaurantes[1].restaurant
+const capa = restaurantes[1].image
 
 const ItalianaPerfil = () => (
   <>
-    <HeaderPerfil
-      category="italiana"
-      restaurant="La Dolce Vita Trattoria"
-      capa={italiana}
-    />
+    <HeaderPerfil category={categoria} restaurant={restaurante} cover={capa} />
     <div className="container">
       <ItalianaList />
     </div>
