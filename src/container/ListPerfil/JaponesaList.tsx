@@ -26,6 +26,16 @@ const JaponesaList = () => (
         name="Sushi"
         description="Sabor autêntico do Japão em cada peça. Ingredientes frescos, ambiente moderno e pratos que encantam o paladar."
       />
+      <CardPerfil
+        image={sushi}
+        name="Sushi"
+        description="Sabor autêntico do Japão em cada peça. Ingredientes frescos, ambiente moderno e pratos que encantam o paladar."
+      />
+      <CardPerfil
+        image={sushi}
+        name="Sushi"
+        description="Sabor autêntico do Japão em cada peça. Ingredientes frescos, ambiente moderno e pratos que encantam o paladar."
+      />
     </List>
   </ListCont>
 )

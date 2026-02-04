@@ -8,7 +8,6 @@ export const FooterCont = styled.footer`
   margin-top: 120px;
 
   .container {
-    display: block;
     text-align: center;
   }
 `
@@ -23,7 +22,7 @@ export const RedesSociais = styled.div`
 
 export const FooterText = styled.p`
   font-size: 10px;
-  width: 480px;
+  max-width: 480px;
   margin: 0 auto;
 `
 

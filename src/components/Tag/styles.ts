@@ -10,4 +10,10 @@ export const TagCont = styled.div`
   display: inline-block;
   margin-right: 8px;
   margin-top: 8px;
+
+  @media (max-width: 520px) {
+    margin-right: 0;
+    margin-left: 8px;
+    margin-bottom: 8px;
+  }
 `

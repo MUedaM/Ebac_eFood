@@ -1,5 +1,6 @@
 import logo from '../../assets/logos/efoodlogo.png'
 import * as S from './styles'
+import back from '../../assets/logos/volta.png'
 
 type Props = {
   category: string
@@ -12,7 +13,10 @@ const HeaderPerfil = ({ category, restaurant, capa }: Props) => (
     <S.HeaderCont>
       <div className="container">
         <S.Titulo>
-          <S.Voltar to="/">Restaurantes</S.Voltar>
+          <S.Voltar to="/">
+            <img src={back} />
+            Restaurantes
+          </S.Voltar>
           <S.Logo to="/">
             <img src={logo} alt="logo da loja virtual" />
           </S.Logo>

@@ -33,7 +33,7 @@ const CardHome = ({
         <Tag>{category}</Tag>
       </S.Info>
     )}
-    <img src={image} alt="imagem de comida" />
+    <S.Capa src={image} alt="imagem de comida" />
     <S.Border>
       <S.Titulo>
         <p>{restaurant}</p>

@@ -23,6 +23,7 @@ export const StyleGlobal = createGlobalStyle`
   }
 
   body {
-    background-color: ${cores.corFundoPrincipal}
+    background-color: ${cores.corFundoPrincipal};
+    overflow-x: hidden;
   }
 `

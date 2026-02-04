@@ -9,4 +9,14 @@ export const List = styled.ul`
   grid-template-columns: 1fr 1fr;
   column-gap: 80px;
   row-gap: 48px;
+
+  @media (max-width: 1023px) {
+    grid-template-columns: 472px;
+    justify-content: center;
+  }
+
+  @media (max-width: 520px) {
+    grid-template-columns: 236px;
+    justify-content: center;
+  }
 `

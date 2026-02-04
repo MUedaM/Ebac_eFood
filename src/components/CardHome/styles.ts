@@ -5,9 +5,13 @@ import { Link } from 'react-router-dom'
 export const Card = styled.div`
   background-color: ${cores.corBranco};
   position: relative;
+`
 
-  img {
-    display: block;
+export const Capa = styled.img`
+  display: block;
+
+  @media (max-width: 520px) {
+    max-width: 236px;
   }
 `
 
@@ -42,6 +46,12 @@ export const Info = styled.div`
   position: absolute;
   border-color: transparent;
   right: 0;
+
+  @media (max-width: 520px) {
+    position: static;
+    display: flex;
+    justify-content: flex-end;
+  }
 `
 
 export const ButtonLink = styled(Link)`

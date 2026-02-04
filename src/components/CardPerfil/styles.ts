@@ -6,8 +6,9 @@ export const Card = styled.div`
   padding: 8px;
 
   img {
-    max-height: 168px;
-    width: auto;
+    display: block;
+    height: auto;
+    width: 100%;
   }
 `
 export const Titulo = styled.h4`
