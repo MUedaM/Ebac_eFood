@@ -3,13 +3,18 @@ import JaponesaList from '../../container/ListPerfil/JaponesaList'
 
 import { restaurantes } from '../../container/ListHome'
 
-const categoria = restaurantes[0].category
-const restaurante = restaurantes[0].restaurant
-const capa = restaurantes[0].image
+const restaurante = restaurantes.filter((r) => r.id === 0)
 
 const JaponesaPerfil = () => (
   <>
-    <HeaderPerfil category={categoria} restaurant={restaurante} cover={capa} />
+    {restaurante.map((item) => (
+      <HeaderPerfil
+        key={item.id}
+        category={item.category}
+        restaurant={item.restaurant}
+        image={item.image}
+      />
+    ))}
     <div className="container">
       <JaponesaList />
     </div>

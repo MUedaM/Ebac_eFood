@@ -28,7 +28,7 @@ export const restaurantes = [
     to: '/italiana'
   },
   {
-    id: 3,
+    id: 2,
     destaque: false,
     image: japonesa,
     restaurant: 'Hioki Sushi',
@@ -39,7 +39,7 @@ export const restaurantes = [
     to: '/japonesa'
   },
   {
-    id: 4,
+    id: 3,
     destaque: false,
     image: italiana,
     restaurant: 'La Dolce Vita Trattoria',
@@ -50,7 +50,7 @@ export const restaurantes = [
     to: '/italiana'
   },
   {
-    id: 5,
+    id: 4,
     destaque: false,
     image: japonesa,
     restaurant: 'Hioki Sushi',
@@ -61,7 +61,7 @@ export const restaurantes = [
     to: '/japonesa'
   },
   {
-    id: 6,
+    id: 5,
     destaque: false,
     image: italiana,
     restaurant: 'La Dolce Vita Trattoria',

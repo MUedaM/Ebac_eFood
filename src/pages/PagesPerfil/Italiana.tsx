@@ -3,13 +3,18 @@ import ItalianaList from '../../container/ListPerfil/ItalianaList'
 
 import { restaurantes } from '../../container/ListHome'
 
-const categoria = restaurantes[1].category
-const restaurante = restaurantes[1].restaurant
-const capa = restaurantes[1].image
+const restaurante = restaurantes.filter((r) => r.id === 1)
 
 const ItalianaPerfil = () => (
   <>
-    <HeaderPerfil category={categoria} restaurant={restaurante} cover={capa} />
+    {restaurante.map((item) => (
+      <HeaderPerfil
+        key={item.id}
+        category={item.category}
+        restaurant={item.restaurant}
+        image={item.image}
+      />
+    ))}
     <div className="container">
       <ItalianaList />
     </div>

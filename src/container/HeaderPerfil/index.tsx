@@ -5,10 +5,10 @@ import back from '../../assets/logos/volta.png'
 type Props = {
   category: string
   restaurant: string
-  cover: string
+  image: string
 }
 
-const HeaderPerfil = ({ category, restaurant, cover }: Props) => (
+const HeaderPerfil = ({ category, restaurant, image }: Props) => (
   <>
     <S.HeaderCont>
       <div className="container">
@@ -30,7 +30,7 @@ const HeaderPerfil = ({ category, restaurant, cover }: Props) => (
         <h2>{restaurant}</h2>
       </div>
     </S.ImgText>
-    <S.HeaderImg src={cover} alt="foto de comida" />
+    <S.HeaderImg src={image} alt="foto de comida" />
   </>
 )
 
