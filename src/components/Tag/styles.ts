@@ -10,6 +10,8 @@ export const TagCont = styled.div`
   display: inline-block;
   margin-right: 8px;
   margin-top: 8px;
+  position: sticky;
+  z-index: 1;
 
   @media (max-width: 520px) {
     margin-right: 0;

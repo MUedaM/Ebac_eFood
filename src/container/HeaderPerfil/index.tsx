@@ -15,7 +15,7 @@ const HeaderPerfil = ({ category, restaurant, image }: Props) => (
         <S.Titulo>
           <S.Voltar to="/">
             <img src={back} />
-            Restaurantes
+            <p>Restaurantes</p>
           </S.Voltar>
           <S.Logo to="/">
             <img src={logo} alt="logo da loja virtual" />

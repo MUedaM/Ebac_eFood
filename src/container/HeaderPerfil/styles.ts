@@ -43,8 +43,12 @@ export const Voltar = styled(Link)`
   }
 
   img {
-    height: 18px;
+    height: 14px;
     margin-right: 8px;
+  }
+
+  p {
+    align-items: center;
   }
 
   @media (max-width: 520px) {

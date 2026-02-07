@@ -18,4 +18,8 @@ export const Titulo = styled.h1`
   margin: 144px auto 40px;
   max-width: 539px;
   font-size: 32px;
+
+  @media (max-width: 520px) {
+    font-size: 24px;
+  }
 `
