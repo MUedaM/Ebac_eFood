@@ -3,7 +3,7 @@ import CardPerfil from '../../components/CardPerfil'
 import { List, ListCont } from './styles'
 import { useParams } from 'react-router-dom'
 import { Restaurante } from '../../App'
-import HeroPerfil from '../HeroPerfil'
+import HeroPerfil from '../../components/HeroPerfil'
 
 export const ListPerfil = () => {
   const { id } = useParams()

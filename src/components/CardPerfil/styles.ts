@@ -43,6 +43,7 @@ export const Capa = styled.img`
   max-height: 168px;
   height: 100%;
   width: 100%;
+  object-fit: cover;
 `
 
 export const Titulo = styled.h4`
