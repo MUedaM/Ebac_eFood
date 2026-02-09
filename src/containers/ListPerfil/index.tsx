@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import CardPerfil from '../../components/CardPerfil'
 import { List, ListCont } from './styles'
 import { useParams } from 'react-router-dom'
-import HeaderPerfil from '../../components/HeaderPerfil'
 import { Restaurante } from '../../App'
+import HeroPerfil from '../HeroPerfil'
 
 export const ListPerfil = () => {
   const { id } = useParams()
@@ -28,7 +28,7 @@ export const ListPerfil = () => {
 
   return (
     <>
-      <HeaderPerfil
+      <HeroPerfil
         category={restaurante.tipo}
         restaurant={restaurante.titulo}
         image={restaurante.capa}

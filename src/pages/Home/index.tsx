@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import ListHome from '../../containers/ListHome'
 import { Restaurante } from '../../App'
 import Footer from '../../containers/Footer'
+import HeaderHome from '../../components/HeaderHome'
 
 const Home = () => {
   const [home, setHome] = useState<Restaurante[]>([])
@@ -14,6 +15,7 @@ const Home = () => {
 
   return (
     <>
+      <HeaderHome />
       <ListHome restaurantes={home} />
       <Footer />
     </>
