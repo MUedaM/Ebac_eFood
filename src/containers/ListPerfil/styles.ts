@@ -14,7 +14,7 @@ export const List = styled.ul`
     justify-content: center;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     grid-template-columns: 320px;
     justify-content: center;
   }

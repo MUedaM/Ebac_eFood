@@ -27,6 +27,9 @@ export const ActionHome = styled(Action)`
 
 export const Capa = styled.img`
   display: block;
+  max-height: 217px;
+  width: 472px;
+  object-fit: cover;
 
   @media (max-width: 520px) {
     max-width: 236px;
@@ -38,6 +41,7 @@ export const Border = styled.div`
   border: 1px solid ${cores.corTextoPrincipal};
   background-color: ${cores.corBranco};
   border-top: none;
+  height: 181px;
   padding: 8px;
   position: sticky;
   z-index: 1;

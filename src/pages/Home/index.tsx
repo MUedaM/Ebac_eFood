@@ -1,13 +1,24 @@
-import HeaderHome from '../../container/HeaderHome'
-import ListHome from '../../container/ListHome'
+import { useEffect, useState } from 'react'
+import ListHome from '../../containers/ListHome'
+import { Restaurante } from '../../App'
+import Footer from '../../containers/Footer'
 
-const Home = () => (
-  <>
-    <HeaderHome />
-    <div className="container">
-      <ListHome />
-    </div>
-  </>
-)
+const Home = () => {
+  const [home, setHome] = useState<Restaurante[]>([])
+
+  useEffect(() => {
+    fetch('https://api-ebac.vercel.app/api/efood/restaurantes')
+      .then((res) => res.json())
+      .then((res) => setHome(res))
+  })
+
+  return (
+    <>
+      <ListHome restaurantes={home} />
+
+      <Footer />
+    </>
+  )
+}
 
 export default Home

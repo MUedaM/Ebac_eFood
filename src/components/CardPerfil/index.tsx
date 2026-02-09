@@ -8,11 +8,26 @@ type Props = {
   name: string
   description: string
   details: string
-  price: string
+  price: number
+  portion: string
 }
 
-const CardPerfil = ({ image, name, description, details, price }: Props) => {
+const CardPerfil = ({
+  image,
+  name,
+  description,
+  details,
+  portion,
+  price
+}: Props) => {
   const [modalVisible, setModalVisible] = useState(false)
+
+  const PriceFormat = (preco = 0) => {
+    return new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+    }).format(preco)
+  }
 
   return (
     <>
@@ -42,9 +57,14 @@ const CardPerfil = ({ image, name, description, details, price }: Props) => {
             />
           </S.Xis>
           <S.Content>
-            <h4>{name}</h4>
-            <p>{details}</p>
-            <button>Adicionar ao carrinho - R$ {price}</button>
+            <div>
+              <h4>{name}</h4>
+              <p>{details}</p>
+            </div>
+            <div>
+              <p>Serve: de {portion}</p>
+              <button>Adicionar ao carrinho - {PriceFormat(price)}</button>
+            </div>
           </S.Content>
         </S.ModalContent>
         <div className="overlay" onClick={() => setModalVisible(false)}></div>

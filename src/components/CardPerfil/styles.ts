@@ -6,6 +6,8 @@ export const Card = styled.div`
   padding: 8px;
   cursor: pointer;
   position: relative;
+  height: 100%;
+  max-height: 336px;
 
   @media (min-width: 1024px) {
     &:hover {
@@ -38,7 +40,8 @@ export const Border = styled.div`
 
 export const Capa = styled.img`
   display: block;
-  height: auto;
+  max-height: 168px;
+  height: 100%;
   width: 100%;
 `
 
@@ -100,23 +103,47 @@ export const Modal = styled.div`
 `
 
 export const ModalContent = styled.div`
+  width: 100%;
   max-width: 1024px;
-  max-height: 344px;
+  height: 344px;
   padding: 32px;
   position: relative;
   z-index: 1;
   background-color: ${cores.corTextoPrincipal};
   display: flex;
 
+  @media (max-width: 768px) {
+    flex-direction: column;
+    widht: 80%;
+    height: 500px;
+  }
+
+  @media (max-width: 520px) {
+    height: 700px;
+  }
+
   img {
     width: 280px;
     height: 280px;
     object-fit: cover;
+
+    @media (max-width: 768px) {
+      display: block;
+      margin: 0 auto 16px;
+    }
   }
 `
 
 export const Content = styled.div`
   margin-left: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media (max-width: 768px) {
+    text-align: center;
+    margin-left: 0;
+  }
 
   h4 {
     color: ${cores.corBranco};

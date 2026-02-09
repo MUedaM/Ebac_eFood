@@ -10,7 +10,7 @@ type Props = {
   image: string
   restaurant: string
   category: string
-  score: string
+  score: number
   description: string
   to: string
 }
