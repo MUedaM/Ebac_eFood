@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import ListHome from '../../containers/ListHome'
 import { Restaurante } from '../../App'
-import Footer from '../../containers/Footer'
+import Footer from '../../components/Footer'
 import HeaderHome from '../../components/HeaderHome'
 
 const Home = () => {
