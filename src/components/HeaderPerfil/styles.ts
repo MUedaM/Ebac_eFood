@@ -139,8 +139,4 @@ export const HeaderImg = styled.img`
   object-fit: cover;
   position: relative;
   z-index: -1;
-
-  @media (max-width: 608px) {
-    max-height: 100%;
-  }
 `

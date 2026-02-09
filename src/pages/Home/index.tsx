@@ -15,7 +15,6 @@ const Home = () => {
   return (
     <>
       <ListHome restaurantes={home} />
-
       <Footer />
     </>
   )
