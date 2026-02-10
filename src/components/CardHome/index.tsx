@@ -1,6 +1,6 @@
-import estrela from '../../assets/logos/estrela.png'
-import Tag from '../Tag'
 import * as S from './styles'
+import Tag from '../Tag'
+import estrela from '../../assets/logos/estrela.png'
 
 import mais from '../../assets/logos/mais.png'
 

@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 export const Card = styled.div`
   background-color: ${cores.corBranco};
   position: relative;
+  width: 100%;
+  max-width: 472px;
 
   @media (min-width: 1024px) {
     &:hover {
@@ -27,14 +29,10 @@ export const ActionHome = styled(Action)`
 
 export const Capa = styled.img`
   display: block;
-  max-height: 217px;
-  width: 472px;
+  max-height: 216px;
+  width: 100%;
+  max-width: 472px;
   object-fit: cover;
-
-  @media (max-width: 520px) {
-    max-width: 236px;
-    height: auto;
-  }
 `
 
 export const Border = styled.div`

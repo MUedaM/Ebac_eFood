@@ -12,13 +12,8 @@ export const Titulo = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  @media (max-width: 1120px) {
-    width: 80%;
-    margin: 0 auto;
-  }
-
-  @media (max-width: 1025px) {
-    width: 80%;
+  @media (max-width: 1024px) {
+    width: 90%;
     margin: 0 auto;
   }
 

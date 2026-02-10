@@ -1,7 +1,7 @@
+import { useState } from 'react'
 import * as S from './styles'
 import carrinho from '../../assets/logos/carrinho.png'
 import fechar from '../../assets/logos/fechar.png'
-import { useState } from 'react'
 
 type Props = {
   image: string
@@ -31,21 +31,19 @@ const CardPerfil = ({
 
   return (
     <>
-      <div className="container">
-        <S.Card>
-          <S.Item>
-            <S.Capa src={image} alt="foto de comida" />
-            <S.ActionPerfil onClick={() => setModalVisible(true)}>
-              <img src={carrinho} alt="Clique para ir à compra" />
-              <p>Clique aqui para adicionar ao carrinho!</p>
-            </S.ActionPerfil>
-          </S.Item>
-          <S.Border>
-            <S.Titulo>{name}</S.Titulo>
-            <S.Descricao>{description}</S.Descricao>
-          </S.Border>
-        </S.Card>
-      </div>
+      <S.Card>
+        <S.Item onClick={() => setModalVisible(true)}>
+          <S.Capa src={image} alt="foto de comida" />
+          <S.ActionPerfil>
+            <img src={carrinho} alt="Clique para ir à compra" />
+            <p>Clique aqui para adicionar ao carrinho!</p>
+          </S.ActionPerfil>
+        </S.Item>
+        <S.Border>
+          <S.Titulo>{name}</S.Titulo>
+          <S.Descricao>{description}</S.Descricao>
+        </S.Border>
+      </S.Card>
       <S.Modal className={modalVisible && 'visible'}>
         <S.ModalContent className="container">
           <img src={image} alt="foto de comida" />

@@ -20,6 +20,10 @@ export const StyleGlobal = createGlobalStyle`
     max-width: 1024px;
     width: 100%;
     margin: 0 auto;
+
+    @media (max-width: 520px) {
+      width: 80%;
+    }
   }
 
   body {

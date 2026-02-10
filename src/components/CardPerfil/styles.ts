@@ -4,8 +4,9 @@ import { Action, cores } from '../../styles/global'
 export const Card = styled.div`
   background-color: ${cores.corTextoPrincipal};
   padding: 8px;
-  cursor: pointer;
   position: relative;
+  width: 100%;
+  max-width: 320px;
   height: 100%;
   max-height: 336px;
 
@@ -30,6 +31,8 @@ export const ActionPerfil = styled(Action)`
 
 export const Item = styled.div`
   position: relative;
+
+  cursor: pointer;
 `
 
 export const Border = styled.div`
@@ -40,9 +43,10 @@ export const Border = styled.div`
 
 export const Capa = styled.img`
   display: block;
-  max-height: 168px;
   height: 100%;
+  max-height: 168px;
   width: 100%;
+  max-width: 304px;
   object-fit: cover;
 `
 
@@ -69,7 +73,6 @@ export const ButtonCarrinho = styled.button`
   display: block;
   width: 100%;
   margin-top: 8px;
-  cursor: pointer;
 
   &:hover {
     color: ${cores.corTextoSecundario};
@@ -104,23 +107,20 @@ export const Modal = styled.div`
 `
 
 export const ModalContent = styled.div`
-  width: 100%;
-  max-width: 1024px;
-  height: 344px;
+  height: auto;
   padding: 32px;
   position: relative;
   z-index: 1;
   background-color: ${cores.corTextoPrincipal};
   display: flex;
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-    widht: 80%;
-    height: 500px;
+  @media (max-width: 1024px) {
+    width: 90%;
+    margin: 0 auto;
   }
 
-  @media (max-width: 520px) {
-    height: 700px;
+  @media (max-width: 768px) {
+    flex-direction: column;
   }
 
   img {
@@ -131,6 +131,8 @@ export const ModalContent = styled.div`
     @media (max-width: 768px) {
       display: block;
       margin: 0 auto 16px;
+      width: 140px;
+      height: 140px;
     }
   }
 `
