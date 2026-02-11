@@ -43,12 +43,8 @@ const CardPerfil = ({
       <S.Modal className={modalVisible && 'visible'}>
         <S.ModalContent className="container">
           <img src={image} alt="foto de comida" />
-          <S.Xis>
-            <img
-              src={fechar}
-              alt="icone de fechar popup"
-              onClick={() => setModalVisible(false)}
-            />
+          <S.Xis onClick={() => setModalVisible(false)}>
+            <img src={fechar} alt="icone de fechar popup" />
           </S.Xis>
           <S.Content>
             <div>

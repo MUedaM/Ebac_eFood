@@ -168,6 +168,7 @@ export const Xis = styled.div`
   position: absolute;
   right: 8px;
   top: 8px;
+  cursor: pointer;
 
   img {
     max-height: 16px;
@@ -175,7 +176,6 @@ export const Xis = styled.div`
     position: absolute;
     right: 8px;
     top: 8px;
-    cursor: pointer;
   }
 
   &:hover {
