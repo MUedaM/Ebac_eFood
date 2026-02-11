@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import * as S from './styles'
-import carrinho from '../../assets/logos/carrinho.png'
 import fechar from '../../assets/logos/fechar.png'
 
 type Props = {
@@ -32,17 +31,14 @@ const CardPerfil = ({
   return (
     <>
       <S.Card>
-        <S.Item onClick={() => setModalVisible(true)}>
+        <div>
           <S.Capa src={image} alt="foto de comida" />
-          <S.ActionPerfil>
-            <img src={carrinho} alt="Clique para ir à compra" />
-            <p>Clique aqui para adicionar ao carrinho!</p>
-          </S.ActionPerfil>
-        </S.Item>
-        <S.Border>
           <S.Titulo>{name}</S.Titulo>
           <S.Descricao>{description}</S.Descricao>
-        </S.Border>
+        </div>
+        <S.ButtonMore onClick={() => setModalVisible(true)}>
+          Mais detalhes
+        </S.ButtonMore>
       </S.Card>
       <S.Modal className={modalVisible && 'visible'}>
         <S.ModalContent className="container">
@@ -61,7 +57,9 @@ const CardPerfil = ({
             </div>
             <div>
               <p>Serve: de {portion}</p>
-              <button>Adicionar ao carrinho - {PriceFormat(price)}</button>
+              <S.ButtonCarrinho>
+                Adicionar ao carrinho - {PriceFormat(price)}
+              </S.ButtonCarrinho>
             </div>
           </S.Content>
         </S.ModalContent>

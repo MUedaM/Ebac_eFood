@@ -18,7 +18,7 @@ const ListHome = ({ restaurantes }: Props) => {
 
   const getResume = (descricao: string) => {
     if (descricao.length > 196) {
-      return descricao.slice(0, 196) + ' ...'
+      return descricao.slice(0, 221) + ' ...'
     }
     return descricao
   }

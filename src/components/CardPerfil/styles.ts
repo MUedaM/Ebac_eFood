@@ -8,7 +8,11 @@ export const Card = styled.div`
   width: 100%;
   max-width: 320px;
   height: 100%;
-  max-height: 336px;
+  max-height: 338px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   @media (min-width: 1024px) {
     &:hover {
@@ -17,28 +21,10 @@ export const Card = styled.div`
       }
     }
   }
-`
 
-export const ActionPerfil = styled(Action)`
-  @media (max-width: 520px) {
-    padding: 4px 0 8px;
-
-    img {
-      display: none;
-    }
+  @media (max-width: 424px) {
+    height: 400px;
   }
-`
-
-export const Item = styled.div`
-  position: relative;
-
-  cursor: pointer;
-`
-
-export const Border = styled.div`
-  background-color: ${cores.corTextoPrincipal}
-  position: sticky;
-  z-index: 1;
 `
 
 export const Capa = styled.img`
@@ -65,14 +51,15 @@ export const Descricao = styled.p`
   line-height: 22px;
 `
 
-export const ButtonCarrinho = styled.button`
+export const ButtonMore = styled.button`
   color: ${cores.corTextoPrincipal};
   background-color: ${cores.corTextoSecundario};
-  border-color: transparent;
+  border: 1px solid transparent;
   padding: 4px;
   display: block;
   width: 100%;
   margin-top: 8px;
+  cursor: pointer;
 
   &:hover {
     color: ${cores.corTextoSecundario};
@@ -161,22 +148,21 @@ export const Content = styled.div`
     font-weight: 400;
     line-height: 22px;
   }
-
-  button {
-    padding: 4px 8px;
-    color: ${cores.corTextoPrincipal};
-    background-color: ${cores.corTextoSecundario};
-    border-color: transparent;
-    cursor: pointer;
-
-    &:hover {
-      color: ${cores.corTextoSecundario};
-      background-color: transparent;
-      border: 1px solid ${cores.corTextoSecundario};
-    }
-  }
 `
 
+export const ButtonCarrinho = styled.button`
+  padding: 4px 8px;
+  color: ${cores.corTextoPrincipal};
+  background-color: ${cores.corTextoSecundario};
+  border: 1px solid transparent;
+  cursor: pointer;
+
+  &:hover {
+    color: ${cores.corTextoSecundario};
+    background-color: transparent;
+    border: 1px solid ${cores.corTextoSecundario};
+  }
+`
 export const Xis = styled.div`
   padding: 16px;
   position: absolute;

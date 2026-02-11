@@ -2,8 +2,6 @@ import * as S from './styles'
 import Tag from '../Tag'
 import estrela from '../../assets/logos/estrela.png'
 
-import mais from '../../assets/logos/mais.png'
-
 type Props = {
   destaque: boolean
 
@@ -35,24 +33,19 @@ const CardHome = ({
         <Tag>{category}</Tag>
       </S.Info>
     )}
-    <S.AreaLink to={to}>
-      <div>
-        <S.Capa src={image} alt="imagem de comida" />
-        <S.ActionHome>
-          <img src={mais} alt="Para mais detalhes" />
-          <p>Clique aqui para saber mais!</p>
-        </S.ActionHome>
-      </div>
-    </S.AreaLink>
+    <S.Capa src={image} alt="imagem de comida" />
     <S.Border>
-      <S.Titulo>
-        <p>{restaurant}</p>
-        <div>
-          <span>{score}</span>
-          <img src={estrela} alt="logo de estrela" />
-        </div>
-      </S.Titulo>
-      <S.Descricao>{description}</S.Descricao>
+      <div>
+        <S.Titulo>
+          <p>{restaurant}</p>
+          <div>
+            <span>{score}</span>
+            <img src={estrela} alt="logo de estrela" />
+          </div>
+        </S.Titulo>
+        <S.Descricao>{description}</S.Descricao>
+      </div>
+      <S.ButtonLink to={to}>Saiba mais</S.ButtonLink>
     </S.Border>
   </S.Card>
 )

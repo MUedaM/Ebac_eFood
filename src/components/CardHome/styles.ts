@@ -17,32 +17,26 @@ export const Card = styled.div`
   }
 `
 
-export const ActionHome = styled(Action)`
-  justify-content: flex-start;
-  padding-top: 85px;
-
-  @media (max-width: 520px) {
-    padding: 8px 0;
-    justify-content: flex-end;
-  }
-`
-
 export const Capa = styled.img`
   display: block;
   max-height: 216px;
   width: 100%;
   max-width: 472px;
   object-fit: cover;
+  border-radius: 8px 8px 0 0;
 `
 
 export const Border = styled.div`
   border: 1px solid ${cores.corTextoPrincipal};
   background-color: ${cores.corBranco};
   border-top: none;
-  height: 181px;
+  height: 100%;
+  max-height: 216px;
   padding: 8px;
-  position: sticky;
-  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 0 0 8px 8px;
 `
 
 export const Titulo = styled.h3`
@@ -94,4 +88,23 @@ export const Info = styled.div`
   }
 `
 
-export const AreaLink = styled(Link)``
+export const ButtonLink = styled(Link)`
+  background-color: ${cores.corTextoPrincipal};
+  color: ${cores.corTextoSecundario};
+  font-size: 14px;
+  font-weight: bold;
+  padding: 4px 6px;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  margin-top: 8px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 84px;
+
+  &:hover {
+    background-color: ${cores.corTextoSecundario};
+    color: ${cores.corTextoPrincipal};
+    border: 1px solid ${cores.corTextoPrincipal};
+  }
+`
