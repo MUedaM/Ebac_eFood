@@ -60,6 +60,7 @@ export const ButtonMore = styled.button`
   width: 100%;
   margin-top: 8px;
   cursor: pointer;
+  transition: all 0.3s ease;
 
   &:hover {
     color: ${cores.corTextoSecundario};
@@ -156,6 +157,7 @@ export const ButtonCarrinho = styled.button`
   background-color: ${cores.corTextoSecundario};
   border: 1px solid transparent;
   cursor: pointer;
+  transition: all 0.3s ease;
 
   &:hover {
     color: ${cores.corTextoSecundario};

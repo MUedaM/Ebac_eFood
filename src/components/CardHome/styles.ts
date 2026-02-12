@@ -101,6 +101,7 @@ export const ButtonLink = styled(Link)`
   cursor: pointer;
   width: 100%;
   max-width: 84px;
+  transition: all 0.3s ease;
 
   &:hover {
     background-color: ${cores.corTextoSecundario};
