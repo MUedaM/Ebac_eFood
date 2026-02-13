@@ -30,8 +30,7 @@ export const Border = styled.div`
   border: 1px solid ${cores.corTextoPrincipal};
   background-color: ${cores.corBranco};
   border-top: none;
-  height: 100%;
-  max-height: 216px;
+  min-height: 216px;
   padding: 8px;
   display: flex;
   flex-direction: column;

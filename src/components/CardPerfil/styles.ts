@@ -7,8 +7,7 @@ export const Card = styled.div`
   position: relative;
   width: 100%;
   max-width: 320px;
-  height: 100%;
-  max-height: 338px;
+  min-height: 338px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -22,8 +21,8 @@ export const Card = styled.div`
     }
   }
 
-  @media (max-width: 424px) {
-    height: 400px;
+  @media (max-width: 520px) {
+    min-height: 340px;
   }
 `
 

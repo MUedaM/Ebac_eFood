@@ -16,11 +16,18 @@ export const List = styled.ul`
   row-gap: 32px;
 
   @media (max-width: 1024px) {
-    grid-template-columns: auto auto;
-    justify-content: space-between;
+    grid-template-columns: auto auto auto;
+    column-gap: 32px;
+    justify-content: center;
   }
 
   @media (max-width: 768px) {
+    grid-template-columns: auto auto;
+    column-gap: 32px;
+    justify-content: center;
+  }
+
+  @media (max-width: 520px) {
     grid-template-columns: auto;
     justify-content: center;
   }
