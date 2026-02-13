@@ -7,17 +7,13 @@ import HeroPerfil from '../../components/HeroPerfil'
 
 export const ListPerfil = () => {
   const { id } = useParams()
-  const [restaurante, setRestaurante] = useState<Restaurante>()
+  const [perfil, setPerfil] = useState<Restaurante>()
 
   useEffect(() => {
     fetch(`https://api-ebac.vercel.app/api/efood/restaurantes/${id}`)
       .then((res) => res.json())
-      .then((res) => setRestaurante(res))
+      .then((res) => setPerfil(res))
   }, [id])
-
-  if (!restaurante) {
-    return null
-  }
 
   const getResume = (descricao: string) => {
     if (descricao.length > 95) {
@@ -26,17 +22,21 @@ export const ListPerfil = () => {
     return descricao
   }
 
+  if (!perfil) {
+    return null
+  }
+
   return (
     <>
       <HeroPerfil
-        category={restaurante.tipo}
-        restaurant={restaurante.titulo}
-        image={restaurante.capa}
+        category={perfil.tipo}
+        restaurant={perfil.titulo}
+        image={perfil.capa}
       />
       <div className="container">
         <ListCont>
           <List>
-            {restaurante.cardapio.map((item) => (
+            {perfil.cardapio.map((item) => (
               <CardPerfil
                 key={item.id}
                 image={item.foto}

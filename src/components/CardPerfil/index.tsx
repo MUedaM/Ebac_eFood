@@ -40,7 +40,7 @@ const CardPerfil = ({
           Mais detalhes
         </S.ButtonMore>
       </S.Card>
-      <S.Modal className={modalVisible && 'visible'}>
+      <S.Modal className={modalVisible ? 'visible' : ''}>
         <S.ModalContent className="container">
           <img src={image} alt="foto de comida" />
           <S.Xis onClick={() => setModalVisible(false)}>
