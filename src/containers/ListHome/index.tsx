@@ -3,14 +3,15 @@ import { Restaurante } from '../../App'
 import CardHome from '../../components/CardHome'
 import { List, ListCont } from './styles'
 
-export type Props = {
-  restaurantes: Restaurante[]
-}
-
-const ListHome = ({ restaurantes }: Props) => {
+const ListHome = () => {
+  const [home, setHome] = useState<Restaurante[]>([])
   const [width, setWidth] = useState(window.innerWidth)
 
   useEffect(() => {
+    fetch('https://api-ebac.vercel.app/api/efood/restaurantes')
+      .then((res) => res.json())
+      .then((res) => setHome(res))
+
     const handleResize = () => setWidth(window.innerWidth)
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
@@ -26,7 +27,7 @@ const ListHome = ({ restaurantes }: Props) => {
     <div className="container">
       <ListCont>
         <List>
-          {restaurantes.map((item) => (
+          {home.map((item) => (
             <CardHome
               key={item.id}
               destaque={item.destacado}
