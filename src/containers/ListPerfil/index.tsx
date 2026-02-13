@@ -4,6 +4,7 @@ import { List, ListCont } from './styles'
 import { useParams } from 'react-router-dom'
 import { Restaurante } from '../../App'
 import HeroPerfil from '../../components/HeroPerfil'
+import PopUp from '../../components/PopUp'
 
 export const ListPerfil = () => {
   const { id } = useParams()
@@ -21,7 +22,7 @@ export const ListPerfil = () => {
 
   const getResume = (descricao: string) => {
     if (descricao.length > 95) {
-      return descricao.slice(0, 112) + '...'
+      return descricao.slice(0, 102) + '...'
     }
     return descricao
   }
@@ -37,15 +38,22 @@ export const ListPerfil = () => {
         <ListCont>
           <List>
             {restaurante.cardapio.map((item) => (
-              <CardPerfil
-                key={item.id}
-                image={item.foto}
-                name={item.nome}
-                description={getResume(item.descricao)}
-                details={item.descricao}
-                portion={item.porcao}
-                price={item.preco}
-              />
+              <>
+                <CardPerfil
+                  key={item.id}
+                  image={item.foto}
+                  name={item.nome}
+                  description={getResume(item.descricao)}
+                />
+                <PopUp
+                  key={item.id}
+                  name={item.nome}
+                  image={item.foto}
+                  details={item.descricao}
+                  portion={item.porcao}
+                  price={item.preco}
+                />
+              </>
             ))}
           </List>
         </ListCont>

@@ -3,6 +3,8 @@ import { createBrowserRouter, Outlet, useLocation } from 'react-router-dom'
 import { StyleGlobal } from './styles/global'
 import Home from './pages/Home'
 import Perfil from './pages/PagesPerfil'
+import { Provider } from 'react-redux'
+import { store } from './store'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -16,11 +18,11 @@ function ScrollToTop() {
 
 function Layout() {
   return (
-    <>
+    <Provider store={store}>
       <StyleGlobal />
       <ScrollToTop />
       <Outlet />
-    </>
+    </Provider>
   )
 }
 
