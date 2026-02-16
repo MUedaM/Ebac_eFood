@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import popUpReducer from './reducers/popUp'
+import cartReducer from './reducers/cart'
 
 export const store = configureStore({
   reducer: {
-    popUp: popUpReducer
+    cart: cartReducer
   }
 })
 

@@ -1,20 +1,13 @@
-import { useDispatch } from 'react-redux'
-import { open } from '../../store/reducers/popUp'
 import * as S from './styles'
 
 type Props = {
   image: string
   name: string
   description: string
+  onClick: () => void
 }
 
-const CardPerfil = ({ image, name, description }: Props) => {
-  const dispatch = useDispatch()
-
-  const openPopUp = () => {
-    dispatch(open())
-  }
-
+const CardPerfil = ({ image, name, description, onClick }: Props) => {
   return (
     <>
       <S.Card>
@@ -23,7 +16,7 @@ const CardPerfil = ({ image, name, description }: Props) => {
           <S.Titulo>{name}</S.Titulo>
           <S.Descricao>{description}</S.Descricao>
         </div>
-        <S.ButtonMore onClick={openPopUp}>Mais detalhes</S.ButtonMore>
+        <S.ButtonMore onClick={onClick}>Mais detalhes</S.ButtonMore>
       </S.Card>
     </>
   )

@@ -68,8 +68,22 @@ export const Carrinho = styled.p`
   font-weight: 900;
   flex: 1;
   text-align: right;
+  cursor: pointer;
+  text-underline-offset: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  img {
+    height: 16px;
+    margin-left: 8px;
+  }
 
   @media (max-width: 520px) {
-    text-align: center;
+    justify-content: center;
+  }
+
+  &:hover {
+    text-decoration: underline;
   }
 `

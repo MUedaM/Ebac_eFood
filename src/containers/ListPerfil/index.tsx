@@ -9,6 +9,7 @@ import PopUp from '../../components/PopUp'
 export const ListPerfil = () => {
   const { id } = useParams()
   const [perfil, setPerfil] = useState<Restaurante>()
+  const [selectedId, setSelectedId] = useState<number | null>(null)
 
   useEffect(() => {
     fetch(`https://api-ebac.vercel.app/api/efood/restaurantes/${id}`)
@@ -44,15 +45,19 @@ export const ListPerfil = () => {
                   image={item.foto}
                   name={item.nome}
                   description={getResume(item.descricao)}
+                  onClick={() => setSelectedId(item.id)}
                 />
-                <PopUp
-                  key={item.id}
-                  name={item.nome}
-                  image={item.foto}
-                  details={item.descricao}
-                  portion={item.porcao}
-                  price={item.preco}
-                />
+                {selectedId === item.id && (
+                  <PopUp
+                    id={item.id}
+                    name={item.nome}
+                    image={item.foto}
+                    details={item.descricao}
+                    portion={item.porcao}
+                    price={item.preco}
+                    onClose={() => setSelectedId(null)}
+                  />
+                )}
               </>
             ))}
           </List>

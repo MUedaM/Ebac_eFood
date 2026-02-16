@@ -8,22 +8,9 @@ export const Modal = styled.div`
   width: 100%;
   height: 100%;
   z-index: 1;
-  display: none;
   align-items: center;
   justify-content: center;
-
-  &.visible {
-    display: flex;
-  }
-
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
-  }
+  display: flex;
 `
 
 export const ModalContent = styled.div`
@@ -103,6 +90,9 @@ export const Xis = styled.div`
   right: 8px;
   top: 8px;
   cursor: pointer;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
 
   img {
     max-height: 16px;
@@ -113,6 +103,7 @@ export const Xis = styled.div`
   }
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    border: 1px solid ${cores.corFundoPrincipal};
   }
 `

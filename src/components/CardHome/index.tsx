@@ -1,8 +1,6 @@
 import * as S from './styles'
 import Tag from '../Tag'
 import estrela from '../../assets/logos/estrela.png'
-import { useDispatch } from 'react-redux'
-import { close } from '../../store/reducers/popUp'
 
 type Props = {
   destaque: boolean
@@ -24,12 +22,6 @@ const CardHome = ({
   description,
   to
 }: Props) => {
-  const dispatch = useDispatch()
-
-  const closePopUp = () => {
-    dispatch(close())
-  }
-
   return (
     <S.Card>
       {destaque ? (
@@ -54,9 +46,7 @@ const CardHome = ({
           </S.Titulo>
           <S.Descricao>{description}</S.Descricao>
         </div>
-        <S.ButtonLink to={to} onClick={closePopUp}>
-          Saiba mais
-        </S.ButtonLink>
+        <S.ButtonLink to={to}>Saiba mais</S.ButtonLink>
       </S.Border>
     </S.Card>
   )

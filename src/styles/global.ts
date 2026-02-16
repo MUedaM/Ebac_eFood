@@ -3,8 +3,9 @@ import styled, { createGlobalStyle } from 'styled-components'
 export const cores = {
   corTextoPrincipal: '#E66767',
   corTextoSecundario: '#FFEBD9',
+  corFundoPrincipal: '#FFF8F2',
   corBranco: '#FFFFFF',
-  corFundoPrincipal: '#FFF8F2'
+  corPreto: '#000000'
 }
 
 export const StyleGlobal = createGlobalStyle`
@@ -69,5 +70,24 @@ export const Action = styled.div`
       font-size: 10px;
       padding: 4px 0;
     }
+  }
+`
+
+export const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: ${cores.corPreto};
+  opacity: 0.8;
+  display: none;
+
+  &.visible {
+    display: block;
+  }
+
+  &.is-open {
+    display: block;
   }
 `
