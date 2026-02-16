@@ -1,21 +1,21 @@
 import { useEffect, useState } from 'react'
-import { Restaurante } from '../../App'
 import CardHome from '../../components/CardHome'
 import { List, ListCont } from './styles'
+import { useGetRestaurantesQuery } from '../../services/api'
 
 const ListHome = () => {
-  const [home, setHome] = useState<Restaurante[]>([])
+  const { data: home } = useGetRestaurantesQuery()
   const [width, setWidth] = useState(window.innerWidth)
 
   useEffect(() => {
-    fetch('https://api-ebac.vercel.app/api/efood/restaurantes')
-      .then((res) => res.json())
-      .then((res) => setHome(res))
-
     const handleResize = () => setWidth(window.innerWidth)
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [])
+
+  if (!home) {
+    return null
+  }
 
   const getResume = (descricao: string) => {
     if (descricao.length > 196) {
@@ -23,6 +23,7 @@ const ListHome = () => {
     }
     return descricao
   }
+
   return (
     <div className="container">
       <ListCont>

@@ -1,21 +1,15 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import CardPerfil from '../../components/CardPerfil'
 import { List, ListCont } from './styles'
 import { useParams } from 'react-router-dom'
-import { Restaurante } from '../../App'
 import HeroPerfil from '../../components/HeroPerfil'
 import PopUp from '../../components/PopUp'
+import { useGetRestauranteByIdQuery } from '../../services/api'
 
 export const ListPerfil = () => {
   const { id } = useParams()
-  const [perfil, setPerfil] = useState<Restaurante>()
+  const { data: perfil } = useGetRestauranteByIdQuery(id as string)
   const [selectedId, setSelectedId] = useState<number | null>(null)
-
-  useEffect(() => {
-    fetch(`https://api-ebac.vercel.app/api/efood/restaurantes/${id}`)
-      .then((res) => res.json())
-      .then((res) => setPerfil(res))
-  }, [id])
 
   if (!perfil) {
     return null
