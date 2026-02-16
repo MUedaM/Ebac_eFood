@@ -20,7 +20,7 @@ export const SideBar = styled.aside`
   background-color: ${cores.corTextoPrincipal};
   z-index: 1;
   padding: 16px 8px;
-  max-width: 360px;
+  max-width: 376px;
   width: 100%;
   position: relative;
 `
@@ -91,5 +91,5 @@ export const Resume = styled.div`
 export const Footer = styled.div`
   position: absolute;
   bottom: 16px;
-  width: 344px;
+  width: 360px;
 `
