@@ -34,15 +34,17 @@ const Cart = () => {
               />
             ))
           )}
+          <S.Footer>
+            <S.Resume className={items.length === 0 ? '' : 'visible'}>
+              <div>
+                <p>Valor total:</p>
+                <p>{PriceFormat(total)}</p>
+              </div>
+              <ButtonMore>Continuar com a entrega</ButtonMore>
+            </S.Resume>
+            <ButtonMore onClick={closeCart}>Fechar carrinho</ButtonMore>
+          </S.Footer>
         </S.Items>
-        <S.Footer>
-          <S.Resume>
-            <p>Valor total:</p>
-            <p>{PriceFormat(total)}</p>
-          </S.Resume>
-          <ButtonMore>Continuar com a entrega</ButtonMore>
-          <ButtonMore onClick={closeCart}>Fechar carrinho</ButtonMore>
-        </S.Footer>
       </S.SideBar>
       <Overlay className={isOpen ? 'is-open' : ''} onClick={closeCart} />
     </S.CartCont>

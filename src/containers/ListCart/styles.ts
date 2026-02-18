@@ -58,6 +58,7 @@ export const Alert = styled.p`
   color: ${cores.corTextoSecundario};
   padding-top: 16px;
   text-align: center;
+  margin-right: 16px;
 `
 
 export const Header = styled.div`
@@ -78,13 +79,26 @@ export const Header = styled.div`
 `
 
 export const Resume = styled.div`
-  display: flex;
+  display: none;
   justify-content: space-between;
   align-items: center;
-  margin: 40px 0 16px;
+  margin-top: 40px;
+
+  div {
+    display: none;
+    justify-content: space-between;
+  }
 
   p {
     color: ${cores.corTextoSecundario};
+  }
+
+  &.visible {
+    display: block;
+
+    div {
+      display: flex;
+    }
   }
 `
 
