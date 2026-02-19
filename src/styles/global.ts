@@ -5,7 +5,8 @@ export const cores = {
   corTextoSecundario: '#FFEBD9',
   corFundoPrincipal: '#FFF8F2',
   corBranco: '#FFFFFF',
-  corPreto: '#000000'
+  corPreto: '#000000',
+  corInputText: '#4B4B4B'
 }
 
 export const StyleGlobal = createGlobalStyle`

@@ -1,5 +1,4 @@
 import HeaderPerfil from '../../components/HeaderPerfil'
-import Footer from '../../components/Footer'
 import ListPerfil from '../../containers/ListPerfil'
 import Cart from '../../containers/ListCart'
 
@@ -8,7 +7,6 @@ const Perfil = () => {
     <>
       <HeaderPerfil />
       <ListPerfil />
-      <Footer />
       <Cart />
     </>
   )

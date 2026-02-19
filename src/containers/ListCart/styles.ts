@@ -107,3 +107,68 @@ export const Footer = styled.div`
   bottom: 16px;
   width: 360px;
 `
+
+export const Title = styled.h2`
+  color: ${cores.corTextoSecundario};
+  margin: 16px 0;
+  font-size: 16px;
+  font-weight: bold;
+`
+
+export const Text = styled.p`
+  color: ${cores.corTextoSecundario};
+  line-height: 22px;
+  font-size: 14px;
+  margin-bottom: 24px;
+`
+
+export const Input = styled.div`
+  display: flex;
+  width: auto;
+
+  &.column {
+    flex-direction: column;
+  }
+
+  &.row {
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 32px;
+  }
+
+  &.margin-bottom {
+    margin-bottom: 24px;
+  }
+`
+
+export const InputInfo = styled.div`
+  label {
+    color: ${cores.corTextoSecundario};
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    margin: 8px 0;
+  }
+
+  input {
+    color: ${cores.corInputText};
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    max-height: 32px;
+    width: 100%;
+    padding: 8px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &.half {
+    flex: 1;
+  }
+
+  &.one-and-half {
+    flex: 3;
+  }
+`
