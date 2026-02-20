@@ -6,7 +6,7 @@ import back from '../../assets/logos/volta.png'
 import carrinho from '../../assets/logos/carrinho.png'
 import { RootReducer } from '../../store'
 
-const HeaderPerfil = () => {
+const HeaderProfile = () => {
   const { items } = useSelector((state: RootReducer) => state.cart)
   const dispatch = useDispatch()
 
@@ -35,4 +35,4 @@ const HeaderPerfil = () => {
   )
 }
 
-export default HeaderPerfil
+export default HeaderProfile

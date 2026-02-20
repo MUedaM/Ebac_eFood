@@ -6,7 +6,7 @@ type Props = {
   image: string
 }
 
-const HeroPerfil = ({ category, restaurant, image }: Props) => (
+const HeroProfle = ({ category, restaurant, image }: Props) => (
   <>
     <ImgText>
       <div className="container">
@@ -18,4 +18,4 @@ const HeroPerfil = ({ category, restaurant, image }: Props) => (
   </>
 )
 
-export default HeroPerfil
+export default HeroProfle

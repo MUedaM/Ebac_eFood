@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import CardPerfil from '../../components/CardPerfil'
+import CardProfile from '../../components/CardProfile'
 import { List, ListCont } from './styles'
 import { useParams } from 'react-router-dom'
-import HeroPerfil from '../../components/HeroPerfil'
+import HeroProfle from '../../components/HeroProfile'
 import PopUp from '../../components/PopUp'
 import { useGetRestauranteByIdQuery } from '../../services/api'
 
-export const ListPerfil = () => {
+export const ListProfile = () => {
   const { id } = useParams()
   const { data: perfil } = useGetRestauranteByIdQuery(id as string)
   const [selectedId, setSelectedId] = useState<number | null>(null)
@@ -24,7 +24,7 @@ export const ListPerfil = () => {
 
   return (
     <>
-      <HeroPerfil
+      <HeroProfle
         category={perfil.tipo}
         restaurant={perfil.titulo}
         image={perfil.capa}
@@ -34,7 +34,7 @@ export const ListPerfil = () => {
           <List>
             {perfil.cardapio.map((item) => (
               <>
-                <CardPerfil
+                <CardProfile
                   key={item.id}
                   image={item.foto}
                   name={item.nome}
@@ -61,4 +61,4 @@ export const ListPerfil = () => {
   )
 }
 
-export default ListPerfil
+export default ListProfile

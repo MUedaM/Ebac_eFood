@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { createBrowserRouter, Outlet, useLocation } from 'react-router-dom'
 import { StyleGlobal } from './styles/global'
 import Home from './pages/Home'
-import Perfil from './pages/PagesPerfil'
+import Profile from './pages/PagesProfile'
 import { Provider } from 'react-redux'
 import { store } from './store'
 import Footer from './components/Footer'
@@ -33,7 +33,7 @@ const rotas = createBrowserRouter([
     element: <Layout />,
     children: [
       { path: '/', element: <Home /> },
-      { path: '/:id', element: <Perfil /> }
+      { path: '/:id', element: <Profile /> }
     ]
   }
 ])

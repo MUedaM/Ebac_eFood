@@ -7,7 +7,7 @@ type Props = {
   onClick: () => void
 }
 
-const CardPerfil = ({ image, name, description, onClick }: Props) => {
+const CardProfile = ({ image, name, description, onClick }: Props) => {
   return (
     <>
       <S.Card>
@@ -22,4 +22,4 @@ const CardPerfil = ({ image, name, description, onClick }: Props) => {
   )
 }
 
-export default CardPerfil
+export default CardProfile
