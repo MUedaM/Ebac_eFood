@@ -27,6 +27,7 @@ const AreaBuy = () => {
           <>
             <Cart />
             <Footer
+              Inactive={false}
               ResumeOff={false}
               onNext={() => setTypeForm('entrega')}
               TextNext="Continuar com a entrega"
@@ -38,6 +39,7 @@ const AreaBuy = () => {
           <>
             <Delivery />
             <Footer
+              Inactive={false}
               ResumeOff
               onNext={() => setTypeForm('pagamento')}
               TextNext="Continuar com o pagamento"
@@ -47,18 +49,16 @@ const AreaBuy = () => {
           </>
         ) : typeForm === 'pagamento' ? (
           <>
-            <Payment />
-            <Footer
-              ResumeOff={false}
+            <Payment
               onNext={() => setTypeForm('')}
-              TextNext="Finalizar pagamento"
               onBack={() => setTypeForm('entrega')}
-              TextBack="Voltar para a edição de endereço"
             />
           </>
         ) : (
           <>
-            <S.Title>Pedido realizado - Order id</S.Title>
+            <S.Title className="margin-bottom">
+              Pedido realizado - Order id
+            </S.Title>
             <S.Text>
               Estamos felizes em informar que seu pedido já está em processo de
               preparação e, em breve, será entregue no endereço fornecido.
@@ -78,6 +78,7 @@ const AreaBuy = () => {
             </S.Text>
             <Footer
               ResumeOff
+              Inactive={false}
               onNext={() => {
                 closeCart()
                 setTypeForm('carrinho')

@@ -136,12 +136,12 @@ export const Footer = styled.div`
 export const Title = styled.h2`
   text-align: center;
   color: ${cores.corTextoSecundario};
-  margin: 16px 0;
+  margin-top: 16px;
   font-size: 16px;
   font-weight: bold;
 
-  &.margin-top {
-    margin-top: 24px;
+  &.margin-bottom {
+    margin-bottom: 16px;
   }
 `
 

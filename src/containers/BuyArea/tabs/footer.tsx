@@ -5,14 +5,22 @@ import * as S from '../styles'
 import { RootReducer } from '../../../store'
 
 type Props = {
-  ResumeOff: boolean
-  onNext: () => void
-  TextNext: string
+  ResumeOff?: boolean
+  Inactive?: boolean
+  onNext?: () => void
+  TextNext?: string
   onBack?: () => void
   TextBack?: string
 }
 
-const Footer = ({ ResumeOff, onNext, TextNext, onBack, TextBack }: Props) => {
+const Footer = ({
+  ResumeOff,
+  Inactive = true,
+  onNext,
+  TextNext,
+  onBack,
+  TextBack
+}: Props) => {
   const { items } = useSelector((state: RootReducer) => state.cart)
   const total = items.reduce((acc, item) => acc + item.price, 0)
 
@@ -25,7 +33,8 @@ const Footer = ({ ResumeOff, onNext, TextNext, onBack, TextBack }: Props) => {
         </div>
       </S.Resume>
       <ButtonMore
-        className={items.length === 0 ? '' : 'visible'}
+        type="submit"
+        className={items.length === 0 || Inactive ? '' : 'visible'}
         onClick={onNext}
       >
         {TextNext}

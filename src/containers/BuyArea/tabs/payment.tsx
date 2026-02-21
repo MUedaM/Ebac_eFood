@@ -1,23 +1,31 @@
+import { useSelector } from 'react-redux'
 import { useState } from 'react'
+
+import { RootReducer } from '../../../store'
 import * as S from '../styles'
 
 import pix from '../../../assets/logos/pix.png'
 import card from '../../../assets/logos/card.png'
 import qrcode from '../../../assets/images/qrcode.png'
+import Footer from './footer'
+import { PriceFormat } from '../../../App'
 
-export const handleConfirm = (method: string) => {
-  if (!method) {
-    alert('Por favor, selecione um método de pagamento antes de continuar.')
-    return
-  }
+type Props = {
+  onNext: () => void
+  onBack: () => void
 }
 
-const Payment = () => {
+const Payment = ({ onNext, onBack }: Props) => {
+  const { items } = useSelector((state: RootReducer) => state.cart)
+  const total = items.reduce((acc, item) => acc + item.price, 0)
   const [method, setMethod] = useState('')
 
   return (
     <>
       <S.Title>Escolha o método de Pagamento</S.Title>
+      <S.SubTitle className="margin-bottom align-center">
+        Valor a pagar - {PriceFormat(total)}
+      </S.SubTitle>
       <S.PayMethod>
         <S.ButtonPayMethod
           onClick={() => setMethod('Method-Card')}
@@ -38,27 +46,27 @@ const Payment = () => {
         <S.Input className="column margin-bottom">
           <S.InputInfo>
             <label htmlFor="cardName">Nome no cartão</label>
-            <input type="text" id="cardName" />
+            <input type="text" id="cardName" required />
           </S.InputInfo>
           <S.Input className="row">
             <S.InputInfo className="one-and-half">
               <label htmlFor="cardNumber">Número do cartão</label>
-              <input type="text" id="cardNumber" />
+              <input type="text" id="cardNumber" required />
             </S.InputInfo>
             <S.InputInfo className="half">
               <label htmlFor="cardCode">CVV</label>
-              <input type="number" id="cardCode" />
+              <input type="number" id="cardCode" required />
             </S.InputInfo>
           </S.Input>
           <S.SubTitle>Data de validade (MM/AAAA)</S.SubTitle>
           <S.Input className="row">
             <S.InputInfo>
               <label htmlFor="cardExpiresMonth">Mês</label>
-              <input type="number" id="cardExpiresMonth" />
+              <input type="number" id="cardExpiresMonth" required />
             </S.InputInfo>
             <S.InputInfo>
               <label htmlFor="cardExpiresYear">Ano</label>
-              <input type="number" id="cardExpiresYear" />
+              <input type="number" id="cardExpiresYear" required />
             </S.InputInfo>
             <S.InputInfo>
               <label>Parcelamento</label>
@@ -79,9 +87,17 @@ const Payment = () => {
         </S.CodeCont>
       ) : (
         <S.SubTitle className="align-center margin-bottom">
-          Selecione um metodo de pagamento
+          Clique acima em um dos metodos de pagamento disponível
         </S.SubTitle>
       )}
+      <Footer
+        ResumeOff
+        Inactive={method === ''}
+        TextNext="Finalizar pagamento"
+        onNext={onNext}
+        TextBack="Voltar para a edição de endereço"
+        onBack={onBack}
+      />
     </>
   )
 }
