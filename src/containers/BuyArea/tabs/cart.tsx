@@ -2,8 +2,14 @@ import * as S from '../styles'
 import ItemCart from '../../../components/ItemCart'
 import { useSelector } from 'react-redux'
 import { RootReducer } from '../../../store'
+import FooterShop from './FooterShop'
 
-const Cart = () => {
+type Props = {
+  onNext: () => void
+  onBack: () => void
+}
+
+const Cart = ({ onNext, onBack }: Props) => {
   const { items } = useSelector((state: RootReducer) => state.cart)
 
   return (
@@ -24,6 +30,15 @@ const Cart = () => {
           ))
         )}
       </S.Items>
+      <FooterShop
+        Inactive={false}
+        ResumeOff={false}
+        ValidForm={false}
+        onNext={onNext}
+        TextNext="Continuar com a entrega"
+        onBack={onBack}
+        TextBack="Fechar carrinho"
+      />
     </>
   )
 }

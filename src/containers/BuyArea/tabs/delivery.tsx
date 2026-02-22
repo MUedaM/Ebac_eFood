@@ -1,6 +1,12 @@
 import * as S from '../styles'
+import FooterShop from './FooterShop'
 
-const Delivery = () => (
+type Props = {
+  onNext: () => void
+  onBack: () => void
+}
+
+const Delivery = ({ onNext, onBack }: Props) => (
   <>
     <S.Title>Entrega</S.Title>
     <S.Input className="column margin-bottom">
@@ -30,6 +36,15 @@ const Delivery = () => (
         <label htmlFor="complementAddress">Complemento (opcional)</label>
         <input type="text" id="complementAddress" />
       </S.InputInfo>
+      <FooterShop
+        Inactive={false}
+        ResumeOff
+        ValidForm
+        onNext={onNext}
+        TextNext="Continuar com o pagamento"
+        onBack={onBack}
+        TextBack="Voltar para o carrinho"
+      />
     </S.Input>
   </>
 )

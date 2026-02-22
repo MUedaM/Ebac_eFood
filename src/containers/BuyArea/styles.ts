@@ -167,7 +167,7 @@ export const Text = styled.p`
   margin-bottom: 24px;
 `
 
-export const Input = styled.div`
+export const Input = styled.form`
   display: flex;
   width: auto;
 

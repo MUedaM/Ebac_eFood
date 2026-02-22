@@ -8,7 +8,7 @@ import { Overlay } from '../../styles/global'
 import Cart from './tabs/cart'
 import Delivery from './tabs/delivery'
 import Payment from './tabs/payment'
-import Footer from './tabs/footer'
+import FooterShop from './tabs/FooterShop'
 
 const AreaBuy = () => {
   const { isOpen } = useSelector((state: RootReducer) => state.cart)
@@ -25,26 +25,13 @@ const AreaBuy = () => {
       <S.SideBar>
         {typeForm === 'carrinho' ? (
           <>
-            <Cart />
-            <Footer
-              Inactive={false}
-              ResumeOff={false}
-              onNext={() => setTypeForm('entrega')}
-              TextNext="Continuar com a entrega"
-              onBack={closeCart}
-              TextBack="Fechar carrinho"
-            />
+            <Cart onNext={() => setTypeForm('entrega')} onBack={closeCart} />
           </>
         ) : typeForm === 'entrega' ? (
           <>
-            <Delivery />
-            <Footer
-              Inactive={false}
-              ResumeOff
+            <Delivery
               onNext={() => setTypeForm('pagamento')}
-              TextNext="Continuar com o pagamento"
               onBack={() => setTypeForm('carrinho')}
-              TextBack="Voltar para o carrinho"
             />
           </>
         ) : typeForm === 'pagamento' ? (
@@ -76,9 +63,10 @@ const AreaBuy = () => {
               Esperamos que desfrute de uma deliciosa e agradável experiência
               gastronômica. Bom apetite!
             </S.Text>
-            <Footer
+            <FooterShop
               ResumeOff
               Inactive={false}
+              ValidForm={false}
               onNext={() => {
                 closeCart()
                 setTypeForm('carrinho')

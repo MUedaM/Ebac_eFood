@@ -7,7 +7,7 @@ import * as S from '../styles'
 import pix from '../../../assets/logos/pix.png'
 import card from '../../../assets/logos/card.png'
 import qrcode from '../../../assets/images/qrcode.png'
-import Footer from './footer'
+import FooterShop from './FooterShop'
 import { PriceFormat } from '../../../App'
 
 type Props = {
@@ -48,7 +48,7 @@ const Payment = ({ onNext, onBack }: Props) => {
             <label htmlFor="cardName">Nome no cartão</label>
             <input type="text" id="cardName" required />
           </S.InputInfo>
-          <S.Input className="row">
+          <S.Input as="div" className="row">
             <S.InputInfo className="one-and-half">
               <label htmlFor="cardNumber">Número do cartão</label>
               <input type="text" id="cardNumber" required />
@@ -77,6 +77,15 @@ const Payment = ({ onNext, onBack }: Props) => {
               </select>
             </S.InputInfo>
           </S.Input>
+          <FooterShop
+            ResumeOff={false}
+            Inactive={false}
+            ValidForm
+            TextNext="Finalizar pagamento"
+            onNext={onNext}
+            TextBack="Voltar para a edição de endereço"
+            onBack={onBack}
+          />
         </S.Input>
       ) : method === 'Method-Pix' ? (
         <S.CodeCont>
@@ -84,20 +93,28 @@ const Payment = ({ onNext, onBack }: Props) => {
             Escaneie o codigo abaixo com a câmera do celular
           </S.SubTitle>
           <img src={qrcode} alt="codigo QR Code Pix" />
+          <FooterShop
+            ResumeOff={false}
+            Inactive={false}
+            ValidForm={false}
+            TextNext="Finalizar pagamento"
+            onNext={onNext}
+            TextBack="Voltar para a edição de endereço"
+            onBack={onBack}
+          />
         </S.CodeCont>
       ) : (
         <S.SubTitle className="align-center margin-bottom">
           Clique acima em um dos metodos de pagamento disponível
+          <FooterShop
+            ResumeOff={false}
+            Inactive={true}
+            ValidForm={false}
+            TextBack="Voltar para a edição de endereço"
+            onBack={onBack}
+          />
         </S.SubTitle>
       )}
-      <Footer
-        ResumeOff
-        Inactive={method === ''}
-        TextNext="Finalizar pagamento"
-        onNext={onNext}
-        TextBack="Voltar para a edição de endereço"
-        onBack={onBack}
-      />
     </>
   )
 }

@@ -5,17 +5,19 @@ import * as S from '../styles'
 import { RootReducer } from '../../../store'
 
 type Props = {
-  ResumeOff?: boolean
-  Inactive?: boolean
+  ResumeOff: boolean
+  Inactive: boolean
+  ValidForm: boolean
   onNext?: () => void
   TextNext?: string
   onBack?: () => void
   TextBack?: string
 }
 
-const Footer = ({
+const FooterShop = ({
   ResumeOff,
-  Inactive = true,
+  Inactive,
+  ValidForm,
   onNext,
   TextNext,
   onBack,
@@ -35,7 +37,20 @@ const Footer = ({
       <ButtonMore
         type="submit"
         className={items.length === 0 || Inactive ? '' : 'visible'}
-        onClick={onNext}
+        onClick={(e) => {
+          if (ValidForm) {
+            const form = e.currentTarget.form
+            if (form && form.checkValidity()) {
+              e.preventDefault()
+              onNext?.()
+            } else {
+              e.preventDefault()
+              form?.reportValidity()
+            }
+          } else {
+            onNext?.()
+          }
+        }}
       >
         {TextNext}
       </ButtonMore>
@@ -49,4 +64,4 @@ const Footer = ({
   )
 }
 
-export default Footer
+export default FooterShop
