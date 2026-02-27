@@ -32,6 +32,12 @@ export const StyleGlobal = createGlobalStyle`
     background-color: ${cores.corFundoPrincipal};
     overflow-x: hidden;
   }
+
+  .maxHeight {
+    display: flex;
+    flex-direction: column;
+  }
+
 `
 
 export const Action = styled.div`

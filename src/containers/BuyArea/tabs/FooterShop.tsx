@@ -7,9 +7,8 @@ import { RootReducer } from '../../../store'
 type Props = {
   ResumeOff: boolean
   Inactive: boolean
-  ValidForm: boolean
-  onNext?: () => void
-  TextNext?: string
+  onNext: () => void
+  TextNext: string
   onBack?: () => void
   TextBack?: string
 }
@@ -17,7 +16,6 @@ type Props = {
 const FooterShop = ({
   ResumeOff,
   Inactive,
-  ValidForm,
   onNext,
   TextNext,
   onBack,
@@ -37,20 +35,7 @@ const FooterShop = ({
       <ButtonMore
         type="submit"
         className={items.length === 0 || Inactive ? '' : 'visible'}
-        onClick={(e) => {
-          if (ValidForm) {
-            const form = e.currentTarget.form
-            if (form && form.checkValidity()) {
-              e.preventDefault()
-              onNext?.()
-            } else {
-              e.preventDefault()
-              form?.reportValidity()
-            }
-          } else {
-            onNext?.()
-          }
-        }}
+        onClick={onNext}
       >
         {TextNext}
       </ButtonMore>

@@ -5,7 +5,6 @@ import Home from './pages/Home'
 import Profile from './pages/PagesProfile'
 import { Provider } from 'react-redux'
 import { store } from './store'
-import Footer from './components/Footer'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -23,7 +22,6 @@ function Layout() {
       <StyleGlobal />
       <ScrollToTop />
       <Outlet />
-      <Footer />
     </Provider>
   )
 }

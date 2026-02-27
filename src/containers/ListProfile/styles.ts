@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const ListCont = styled.div`
   padding-top: 56px;
+  min-height: 50vh;
 
   @media (max-width: 1024px) {
     width: 90%;

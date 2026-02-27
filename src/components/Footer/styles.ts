@@ -6,6 +6,7 @@ export const FooterCont = styled.footer`
   background-image: url(${imagebg});
   padding: 40px;
   margin-top: 120px;
+  height: 331px;
 
   .container {
     text-align: center;

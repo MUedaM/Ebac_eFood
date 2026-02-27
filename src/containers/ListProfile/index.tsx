@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 import HeroProfle from '../../components/HeroProfile'
 import PopUp from '../../components/PopUp'
 import { useGetRestauranteByIdQuery } from '../../services/api'
+import Footer from '../../components/Footer'
 
 export const ListProfile = () => {
   const { id } = useParams()
@@ -33,9 +34,8 @@ export const ListProfile = () => {
         <ListCont>
           <List>
             {perfil.cardapio.map((item) => (
-              <>
+              <div key={item.id}>
                 <CardProfile
-                  key={item.id}
                   image={item.foto}
                   name={item.nome}
                   description={getResume(item.descricao)}
@@ -52,11 +52,12 @@ export const ListProfile = () => {
                     onClose={() => setSelectedId(null)}
                   />
                 )}
-              </>
+              </div>
             ))}
           </List>
         </ListCont>
       </div>
+      <Footer />
     </>
   )
 }

@@ -2,10 +2,6 @@ import styled from 'styled-components'
 import { cores } from '../../styles/global'
 import { ButtonMore } from '../../components/CardProfile/styles'
 
-type buttonProps = {
-  isActive: boolean
-}
-
 export const CartCont = styled.div`
   position: fixed;
   top: 0;
@@ -167,7 +163,7 @@ export const Text = styled.p`
   margin-bottom: 24px;
 `
 
-export const Input = styled.form`
+export const Form = styled.form`
   display: flex;
   width: auto;
 
@@ -180,9 +176,13 @@ export const Input = styled.form`
     justify-content: flex-end;
     gap: 32px;
   }
+
+  small {
+    color: ${cores.corTextoSecundario};
+  }
 `
 
-export const InputInfo = styled.div`
+export const FormInfo = styled.div`
   label {
     color: ${cores.corTextoSecundario};
     font-size: 14px;
@@ -230,14 +230,14 @@ export const PayMethod = styled.div`
   margin-bottom: 16px;
 `
 
-export const ButtonPayMethod = styled(ButtonMore)<buttonProps>`
+export const ButtonPayMethod = styled(ButtonMore)<{ selected?: boolean }>`
   display: flex;
   width: auto;
   margin: 0;
   background-color: ${(props) =>
-    props.isActive ? cores.corTextoPrincipal : cores.corFundoPrincipal};
+    props.selected ? cores.corTextoPrincipal : cores.corFundoPrincipal};
   border: ${(props) =>
-    props.isActive ? `1px solid ${cores.corTextoSecundario}` : 'none'};
+    props.selected ? `1px solid ${cores.corTextoSecundario}` : 'none'};
 
   img {
     max-height: 16px;
@@ -248,7 +248,7 @@ export const ButtonPayMethod = styled(ButtonMore)<buttonProps>`
     align-items: center;
     margin: 0 8px;
     color: ${(props) =>
-      props.isActive ? cores.corTextoSecundario : cores.corTextoPrincipal};
+      props.selected ? cores.corTextoSecundario : cores.corTextoPrincipal};
   }
 
   &:hover {
