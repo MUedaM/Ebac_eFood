@@ -1,9 +1,10 @@
-import styled from 'styled-components'
-import { Action, cores } from '../../styles/global'
 import { Link } from 'react-router-dom'
 
+import styled from 'styled-components'
+import { Action, colors } from '../../styles/global'
+
 export const Card = styled.div`
-  background-color: ${cores.corBranco};
+  background-color: ${colors.colorWhite};
   position: relative;
   width: 100%;
   max-width: 472px;
@@ -17,7 +18,7 @@ export const Card = styled.div`
   }
 `
 
-export const Capa = styled.img`
+export const Cover = styled.img`
   display: block;
   max-height: 216px;
   width: 100%;
@@ -27,8 +28,8 @@ export const Capa = styled.img`
 `
 
 export const Border = styled.div`
-  border: 1px solid ${cores.corTextoPrincipal};
-  background-color: ${cores.corBranco};
+  border: 1px solid ${colors.colorTextPrimary};
+  background-color: ${colors.colorWhite};
   border-top: none;
   min-height: 216px;
   padding: 8px;
@@ -38,7 +39,7 @@ export const Border = styled.div`
   border-radius: 0 0 8px 8px;
 `
 
-export const Titulo = styled.h3`
+export const Title = styled.h3`
   font-size: 18px;
   font-weight: bold;
   display: flex;
@@ -82,14 +83,14 @@ export const Info = styled.div`
     position: sticky;
     display: flex;
     justify-content: flex-end;
-    background-color: ${cores.corFundoPrincipal};
+    background-color: ${colors.colorBackground};
     z-index: 2;
   }
 `
 
 export const ButtonLink = styled(Link)`
-  background-color: ${cores.corTextoPrincipal};
-  color: ${cores.corTextoSecundario};
+  background-color: ${colors.colorTextPrimary};
+  color: ${colors.colorTextSecundary};
   font-size: 14px;
   font-weight: bold;
   padding: 4px 6px;
@@ -103,8 +104,8 @@ export const ButtonLink = styled(Link)`
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: ${cores.corTextoSecundario};
-    color: ${cores.corTextoPrincipal};
-    border: 1px solid ${cores.corTextoPrincipal};
+    background-color: ${colors.colorTextSecundary};
+    color: ${colors.colorTextPrimary};
+    border: 1px solid ${colors.colorTextPrimary};
   }
 `

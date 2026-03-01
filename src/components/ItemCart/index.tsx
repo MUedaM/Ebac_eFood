@@ -1,9 +1,11 @@
-import { useDispatch } from 'react-redux'
 import { Item, Trash } from './styles'
-import { PriceFormat } from '../../App'
-import { removeItem } from '../../store/reducers/cart'
+
+import { PriceFormat } from '../../utils'
 
 import lixeira from '../../assets/logos/lixeira.png'
+
+import { useDispatch } from 'react-redux'
+import { removeItem } from '../../store/reducers/cart'
 
 type Props = {
   id: number

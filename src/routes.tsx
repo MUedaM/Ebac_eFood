@@ -1,9 +1,11 @@
-import { useEffect } from 'react'
 import { createBrowserRouter, Outlet, useLocation } from 'react-router-dom'
-import { StyleGlobal } from './styles/global'
+import { useEffect } from 'react'
+import { Provider } from 'react-redux'
+
 import Home from './pages/Home'
 import Profile from './pages/PagesProfile'
-import { Provider } from 'react-redux'
+
+import { StyleGlobal } from './styles/global'
 import { store } from './store'
 
 function ScrollToTop() {

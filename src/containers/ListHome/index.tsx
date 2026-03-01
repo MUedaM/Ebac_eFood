@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react'
+
+import Loader from '../../components/Loader'
 import CardHome from '../../components/CardHome'
+import Footer from '../../components/Footer'
+
 import { List, ListCont } from './styles'
 import { useGetRestaurantesQuery } from '../../services/api'
-import Footer from '../../components/Footer'
 
 const ListHome = () => {
   const { data: home } = useGetRestaurantesQuery()
@@ -15,7 +18,7 @@ const ListHome = () => {
   }, [])
 
   if (!home) {
-    return null
+    return <Loader />
   }
 
   const getResume = (descricao: string) => {

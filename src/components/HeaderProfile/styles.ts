@@ -1,13 +1,13 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import imagebg from '../../assets/images/imagebg.png'
-import { Link } from 'react-router-dom'
 
 export const HeaderCont = styled.header`
   background-image: url(${imagebg});
   padding: 64px 0;
 `
 
-export const Titulo = styled.div`
+export const Title = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;

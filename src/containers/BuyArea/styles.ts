@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles/global'
+import { colors } from '../../styles/global'
 import { ButtonMore } from '../../components/CardProfile/styles'
 
 export const CartCont = styled.div`
@@ -18,7 +18,7 @@ export const CartCont = styled.div`
 `
 
 export const SideBar = styled.aside`
-  background-color: ${cores.corTextoPrincipal};
+  background-color: ${colors.colorTextPrimary};
   z-index: 1;
   padding: 16px 8px;
   max-width: 376px;
@@ -54,21 +54,21 @@ export const Items = styled.ul`
   }
 
   &::-webkit-scrollbar-track {
-    background-color: ${cores.corTextoPrincipal};
+    background-color: ${colors.colorTextPrimary};
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: ${cores.corTextoSecundario};
+    background-color: ${colors.colorTextSecundary};
     border-radius: 4px;
 
     &:hover {
-      background-color: ${cores.corFundoPrincipal};
+      background-color: ${colors.colorBackground};
     }
   }
 `
 
 export const Alert = styled.p`
-  color: ${cores.corTextoSecundario};
+  color: ${colors.colorTextSecundary};
   padding-top: 16px;
   text-align: center;
   margin-right: 16px;
@@ -81,12 +81,12 @@ export const Header = styled.div`
   margin-bottom: 16px;
 
   h2 {
-    color: ${cores.corTextoSecundario};
+    color: ${colors.colorTextSecundary};
     font-size: 18px;
   }
 
   p {
-    color: ${cores.corTextoSecundario};
+    color: ${colors.colorTextSecundary};
     font-size: 12px;
   }
 `
@@ -103,7 +103,7 @@ export const Resume = styled.div`
   }
 
   p {
-    color: ${cores.corTextoSecundario};
+    color: ${colors.colorTextSecundary};
   }
 
   &.visible {
@@ -131,7 +131,7 @@ export const Footer = styled.div`
 
 export const Title = styled.h2`
   text-align: center;
-  color: ${cores.corTextoSecundario};
+  color: ${colors.colorTextSecundary};
   margin-top: 16px;
   font-size: 16px;
   font-weight: bold;
@@ -142,7 +142,7 @@ export const Title = styled.h2`
 `
 
 export const SubTitle = styled.h3`
-  color: ${cores.corTextoSecundario};
+  color: ${colors.colorTextSecundary};
   margin-top: 16px;
   font-size: 14px;
   font-weight: bold;
@@ -157,7 +157,7 @@ export const SubTitle = styled.h3`
 `
 
 export const Text = styled.p`
-  color: ${cores.corTextoSecundario};
+  color: ${colors.colorTextSecundary};
   line-height: 22px;
   font-size: 14px;
   margin-bottom: 24px;
@@ -178,13 +178,13 @@ export const Form = styled.form`
   }
 
   small {
-    color: ${cores.corTextoSecundario};
+    color: ${colors.colorTextSecundary};
   }
 `
 
 export const FormInfo = styled.div`
   label {
-    color: ${cores.corTextoSecundario};
+    color: ${colors.colorTextSecundary};
     font-size: 14px;
     font-weight: bold;
     display: block;
@@ -192,8 +192,8 @@ export const FormInfo = styled.div`
   }
 
   input {
-    color: ${cores.corInputText};
-    background-color: ${cores.corTextoSecundario};
+    color: ${colors.corInputText};
+    background-color: ${colors.colorTextSecundary};
     border: none;
     font-size: 14px;
     font-weight: bold;
@@ -208,8 +208,8 @@ export const FormInfo = styled.div`
   }
 
   select {
-    color: ${cores.corInputText};
-    background-color: ${cores.corTextoSecundario};
+    color: ${colors.corInputText};
+    background-color: ${colors.colorTextSecundary};
     height: 100%;
     max-height: 32px;
   }
@@ -235,9 +235,9 @@ export const ButtonPayMethod = styled(ButtonMore)<{ selected?: boolean }>`
   width: auto;
   margin: 0;
   background-color: ${(props) =>
-    props.selected ? cores.corTextoPrincipal : cores.corFundoPrincipal};
+    props.selected ? colors.colorTextPrimary : colors.colorBackground};
   border: ${(props) =>
-    props.selected ? `1px solid ${cores.corTextoSecundario}` : 'none'};
+    props.selected ? `1px solid ${colors.colorTextSecundary}` : 'none'};
 
   img {
     max-height: 16px;
@@ -248,15 +248,15 @@ export const ButtonPayMethod = styled(ButtonMore)<{ selected?: boolean }>`
     align-items: center;
     margin: 0 8px;
     color: ${(props) =>
-      props.selected ? cores.corTextoSecundario : cores.corTextoPrincipal};
+      props.selected ? colors.colorTextSecundary : colors.colorTextPrimary};
   }
 
   &:hover {
-    background-color: ${cores.corTextoPrincipal};
-    border: 1px solid ${cores.corTextoSecundario};
+    background-color: ${colors.colorTextPrimary};
+    border: 1px solid ${colors.colorTextSecundary};
 
     p {
-      color: ${cores.corTextoSecundario};
+      color: ${colors.colorTextSecundary};
     }
   }
 `

@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import * as S from './styles'
-import { close } from '../../store/reducers/cart'
-import { RootReducer } from '../../store'
-import { Overlay } from '../../styles/global'
 
 import Cart from './tabs/Cart'
 import Checkout from './tabs/Checkout'
+
+import * as S from './styles'
+import { RootReducer } from '../../store'
+import { close } from '../../store/reducers/cart'
+import { Overlay } from '../../styles/global'
 
 const AreaBuy = () => {
   const { isOpen } = useSelector((state: RootReducer) => state.cart)

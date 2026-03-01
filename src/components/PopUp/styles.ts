@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles/global'
+import { colors } from '../../styles/global'
 
 export const Modal = styled.div`
   position: fixed;
@@ -18,7 +18,7 @@ export const ModalContent = styled.div`
   padding: 32px;
   position: relative;
   z-index: 1;
-  background-color: ${cores.corTextoPrincipal};
+  background-color: ${colors.colorTextPrimary};
   display: flex;
 
   @media (max-width: 1024px) {
@@ -56,13 +56,13 @@ export const Content = styled.div`
   }
 
   h4 {
-    color: ${cores.corBranco};
+    color: ${colors.colorWhite};
     font-size: 18px;
     font-weight: 900;
   }
 
   p {
-    color: ${cores.corBranco};
+    color: ${colors.colorWhite};
     margin: 16px 0;
     font-size: 14px;
     font-weight: 400;
@@ -72,16 +72,16 @@ export const Content = styled.div`
 
 export const ButtonCarrinho = styled.button`
   padding: 4px 8px;
-  color: ${cores.corTextoPrincipal};
-  background-color: ${cores.corTextoSecundario};
+  color: ${colors.colorTextPrimary};
+  background-color: ${colors.colorTextSecundary};
   border: 1px solid transparent;
   cursor: pointer;
   transition: all 0.3s ease;
 
   &:hover {
-    color: ${cores.corTextoSecundario};
+    color: ${colors.colorTextSecundary};
     background-color: transparent;
-    border: 1px solid ${cores.corTextoSecundario};
+    border: 1px solid ${colors.colorTextSecundary};
   }
 `
 export const Xis = styled.div`
@@ -104,6 +104,6 @@ export const Xis = styled.div`
 
   &:hover {
     border-radius: 50%;
-    border: 1px solid ${cores.corFundoPrincipal};
+    border: 1px solid ${colors.colorBackground};
   }
 `

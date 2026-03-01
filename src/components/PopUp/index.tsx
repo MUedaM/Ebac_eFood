@@ -1,9 +1,12 @@
-import { useDispatch } from 'react-redux'
-import fechar from '../../assets/logos/fechar.png'
 import * as S from './styles'
-import { PriceFormat } from '../../App'
-import { addItem, open } from '../../store/reducers/cart'
 import { Overlay } from '../../styles/global'
+
+import { PriceFormat } from '../../utils'
+
+import fechar from '../../assets/logos/fechar.png'
+
+import { useDispatch } from 'react-redux'
+import { addItem, open } from '../../store/reducers/cart'
 
 type Props = {
   id: number

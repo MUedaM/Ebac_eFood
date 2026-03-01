@@ -12,7 +12,7 @@ export const HeaderCont = styled.header`
   }
 `
 
-export const Titulo = styled.h1`
+export const Title = styled.h1`
   display: block;
   text-align: center;
   margin: 144px auto 40px;

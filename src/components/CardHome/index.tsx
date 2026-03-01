@@ -1,10 +1,10 @@
-import * as S from './styles'
 import Tag from '../Tag'
+import * as S from './styles'
+
 import estrela from '../../assets/logos/estrela.png'
 
 type Props = {
   destaque: boolean
-
   image: string
   restaurant: string
   category: string
@@ -34,19 +34,24 @@ const CardHome = ({
           <Tag>{category}</Tag>
         </S.Info>
       )}
-      <S.Capa src={image} alt="imagem de comida" />
+      <S.Cover src={image} alt="imagem de comida" />
       <S.Border>
         <div>
-          <S.Titulo>
+          <S.Title>
             <p>{restaurant}</p>
             <div>
               <span>{score}</span>
               <img src={estrela} alt="logo de estrela" />
             </div>
-          </S.Titulo>
+          </S.Title>
           <S.Descricao>{description}</S.Descricao>
         </div>
-        <S.ButtonLink to={to}>Saiba mais</S.ButtonLink>
+        <S.ButtonLink
+          to={to}
+          title={`Clique aqui para abrir o cardápio do restaurante ${restaurant}`}
+        >
+          Saiba mais
+        </S.ButtonLink>
       </S.Border>
     </S.Card>
   )

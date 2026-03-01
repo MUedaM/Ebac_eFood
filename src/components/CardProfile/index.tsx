@@ -12,8 +12,8 @@ const CardProfile = ({ image, name, description, onClick }: Props) => {
     <>
       <S.Card>
         <div>
-          <S.Capa src={image} alt="foto de comida" />
-          <S.Titulo>{name}</S.Titulo>
+          <S.Cover src={image} alt="foto de comida" />
+          <S.Title>{name}</S.Title>
           <S.Descricao>{description}</S.Descricao>
         </div>
         <S.ButtonMore onClick={onClick}>Mais detalhes</S.ButtonMore>

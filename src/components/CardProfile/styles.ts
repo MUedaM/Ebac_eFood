@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { Action, cores } from '../../styles/global'
+import { Action, colors } from '../../styles/global'
 
 export const Card = styled.div`
-  background-color: ${cores.corTextoPrincipal};
+  background-color: ${colors.colorTextPrimary};
   padding: 8px;
   position: relative;
   width: 100%;
@@ -26,7 +26,7 @@ export const Card = styled.div`
   }
 `
 
-export const Capa = styled.img`
+export const Cover = styled.img`
   display: block;
   height: 100%;
   max-height: 168px;
@@ -35,15 +35,15 @@ export const Capa = styled.img`
   object-fit: cover;
 `
 
-export const Titulo = styled.h4`
-  color: ${cores.corTextoSecundario};
+export const Title = styled.h4`
+  color: ${colors.colorTextSecundary};
   font-size: 16px;
   font-weight: 900;
   margin-top: 8px;
 `
 
 export const Descricao = styled.p`
-  color: ${cores.corTextoSecundario};
+  color: ${colors.colorTextSecundary};
   font-size: 14px;
   font-weight: 400;
   margin: 8px 0;
@@ -51,8 +51,8 @@ export const Descricao = styled.p`
 `
 
 export const ButtonMore = styled.button`
-  color: ${cores.corTextoPrincipal};
-  background-color: ${cores.corTextoSecundario};
+  color: ${colors.colorTextPrimary};
+  background-color: ${colors.colorTextSecundary};
   border: 1px solid transparent;
   padding: 4px;
   display: block;
@@ -62,8 +62,8 @@ export const ButtonMore = styled.button`
   transition: all 0.3s ease;
 
   &:hover {
-    color: ${cores.corTextoSecundario};
-    background-color: ${cores.corTextoPrincipal};
-    border: 1px solid ${cores.corTextoSecundario};
+    color: ${colors.colorTextSecundary};
+    background-color: ${colors.colorTextPrimary};
+    border: 1px solid ${colors.colorTextSecundary};
   }
 `

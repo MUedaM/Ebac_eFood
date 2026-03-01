@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles/global'
+import { colors } from '../../styles/global'
 
 export const ImgText = styled.div`
   position: absolute;
@@ -30,7 +30,7 @@ export const ImgText = styled.div`
   }
 
   h3 {
-    color: ${cores.corBranco};
+    color: ${colors.colorWhite};
     font-size: 32px;
     font-weight: 100;
 
@@ -40,7 +40,7 @@ export const ImgText = styled.div`
   }
 
   h2 {
-    color: ${cores.corBranco};
+    color: ${colors.colorWhite};
     font-size: 32px;
     font-weight: 900;
 

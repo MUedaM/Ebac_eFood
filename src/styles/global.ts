@@ -1,11 +1,11 @@
 import styled, { createGlobalStyle } from 'styled-components'
 
-export const cores = {
-  corTextoPrincipal: '#E66767',
-  corTextoSecundario: '#FFEBD9',
-  corFundoPrincipal: '#FFF8F2',
-  corBranco: '#FFFFFF',
-  corPreto: '#000000',
+export const colors = {
+  colorTextPrimary: '#E66767',
+  colorTextSecundary: '#FFEBD9',
+  colorBackground: '#FFF8F2',
+  colorWhite: '#FFFFFF',
+  colorBlack: '#000000',
   corInputText: '#4B4B4B'
 }
 
@@ -15,7 +15,7 @@ export const StyleGlobal = createGlobalStyle`
     margin: 0;
     box-sizing: border-box;
     font-family: Roboto, sans-serif;
-    color: ${cores.corTextoPrincipal}
+    color: ${colors.colorTextPrimary}
   }
 
   .container {
@@ -29,7 +29,7 @@ export const StyleGlobal = createGlobalStyle`
   }
 
   body {
-    background-color: ${cores.corFundoPrincipal};
+    background-color: ${colors.colorBackground};
     overflow-x: hidden;
   }
 
@@ -70,7 +70,7 @@ export const Action = styled.div`
   }
 
   p {
-    color: ${cores.corBranco};
+    color: ${colors.colorWhite};
     margin-top: 8px;
 
     @media (max-width: 520px) {
@@ -86,7 +86,7 @@ export const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: ${cores.corPreto};
+  background-color: ${colors.colorBlack};
   opacity: 0.8;
   display: none;
 

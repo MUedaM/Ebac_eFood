@@ -1,4 +1,5 @@
-import { HeaderCont, Titulo } from './styles'
+import { HeaderCont, Title } from './styles'
+
 import logo from '../../assets/logos/efoodlogo.png'
 
 const HeaderHome = () => (
@@ -6,7 +7,7 @@ const HeaderHome = () => (
     <div className="container">
       <img src={logo} alt="logo da loja virtual" />
     </div>
-    <Titulo>Viva experiências gastronômicas no conforto da sua casa</Titulo>
+    <Title>Viva experiências gastronômicas no conforto da sua casa</Title>
   </HeaderCont>
 )
 

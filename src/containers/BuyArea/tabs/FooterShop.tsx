@@ -1,7 +1,9 @@
 import { useSelector } from 'react-redux'
-import { PriceFormat } from '../../../App'
+
 import { ButtonMore } from '../../../components/CardProfile/styles'
+
 import * as S from '../styles'
+import { PriceFormat } from '../../../utils'
 import { RootReducer } from '../../../store'
 
 type Props = {
@@ -9,6 +11,7 @@ type Props = {
   Inactive: boolean
   onNext: () => void
   TextNext: string
+  disabled?: boolean
   onBack?: () => void
   TextBack?: string
 }
@@ -18,6 +21,7 @@ const FooterShop = ({
   Inactive,
   onNext,
   TextNext,
+  disabled,
   onBack,
   TextBack
 }: Props) => {
@@ -36,6 +40,7 @@ const FooterShop = ({
         type="submit"
         className={items.length === 0 || Inactive ? '' : 'visible'}
         onClick={onNext}
+        disabled={disabled}
       >
         {TextNext}
       </ButtonMore>

@@ -1,8 +1,9 @@
-import * as S from '../styles'
 import ItemCart from '../../../components/ItemCart'
+import FooterShop from './FooterShop'
+import * as S from '../styles'
+
 import { useSelector } from 'react-redux'
 import { RootReducer } from '../../../store'
-import FooterShop from './FooterShop'
 
 type Props = {
   onNext: () => void

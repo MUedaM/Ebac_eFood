@@ -1,17 +1,20 @@
-import { useSelector } from 'react-redux'
 import { useState } from 'react'
+import * as Yup from 'yup'
+import { useFormik } from 'formik'
+import InputMask from 'react-input-mask'
 
-import { RootReducer } from '../../../store'
-import * as S from '../styles'
+import FooterShop from './FooterShop'
 
 import pix from '../../../assets/logos/pix.png'
 import card from '../../../assets/logos/card.png'
 import qrcode from '../../../assets/images/qrcode.png'
-import FooterShop from './FooterShop'
-import { PriceFormat } from '../../../App'
-import { useFormik } from 'formik'
-import * as Yup from 'yup'
+
 import { usePurchaseMutation } from '../../../services/api'
+
+import * as S from '../styles'
+import { PriceFormat } from '../../../utils'
+import { useSelector } from 'react-redux'
+import { RootReducer } from '../../../store'
 
 type Props = {
   onBack: () => void
@@ -23,14 +26,14 @@ const Checkout = ({ onBack, onNext }: Props) => {
   const total = items.reduce((acc, item) => acc + item.price, 0)
   const [formPay, setFormPay] = useState(false)
   const [methodCard, setMethodCard] = useState(true)
-  const [purchase, { isLoading, isSuccess }] = usePurchaseMutation()
+  const [purchase, { data, isLoading, isSuccess }] = usePurchaseMutation()
 
   const form = useFormik({
     initialValues: {
       nameReceiver: '',
       address: '',
       cityAddress: '',
-      cepAddress: '',
+      zipCodeAddress: '',
       numberAddress: '',
       complementAddress: '',
       cardName: '',
@@ -49,7 +52,7 @@ const Checkout = ({ onBack, onNext }: Props) => {
       cityAddress: Yup.string()
         .min(4, 'Cidade invalida')
         .required('Cidade é obrigatorio'),
-      cepAddress: Yup.string()
+      zipCodeAddress: Yup.string()
         .min(9, 'CEP invalido')
         .required('CEP é obrigatorio'),
       numberAddress: Yup.number().required('Numero é obrigatorio'),
@@ -62,7 +65,7 @@ const Checkout = ({ onBack, onNext }: Props) => {
               .required('Nome de dono do cartão é obrigatorio')
           : schema
       ),
-      cardNumber: Yup.string().when((values, schema) =>
+      cardNumber: Yup.number().when((values, schema) =>
         methodCard
           ? schema
               .min(19, 'Numero de cartão invalido')
@@ -88,18 +91,16 @@ const Checkout = ({ onBack, onNext }: Props) => {
 
     onSubmit: (values) => {
       purchase({
-        products: [
-          {
-            id: 1,
-            price: 10
-          }
-        ],
+        products: items.map((item) => ({
+          id: item.id,
+          price: item.price
+        })),
         delivery: {
           receiver: values.nameReceiver,
           address: {
             description: values.address,
             city: values.cityAddress,
-            zipCode: values.cepAddress,
+            zipCode: values.zipCodeAddress,
             number: Number(values.numberAddress),
             complement: values.complementAddress
           }
@@ -119,32 +120,28 @@ const Checkout = ({ onBack, onNext }: Props) => {
     }
   })
 
-  const isInvalid = (fieldName: string) => {
-    if (fieldName in form.errors) return true
-    return false
+  const hasError = (fieldName: string) => {
+    const isTouched = fieldName in form.touched
+    const isInvalid = fieldName in form.errors
+    return isTouched && isInvalid
   }
 
-  const isTouched = (fieldName: string) => {
-    if (fieldName in form.touched) return true
-    return false
+  const checkInputHasError = (fieldName: string) => {
+    return hasError(fieldName)
   }
 
-  const getErrorMessage = (fieldName: string, message?: string) => {
-    if (isTouched(fieldName) && isInvalid(fieldName)) return message
-  }
-
-  const mensagens = Object.entries(form.errors)
-    .map(([key, value], index) => `${index + 1} - ${value}`)
+  const messages = Object.values(form.errors)
+    .map((value, index) => `${index + 1} - ${value}`)
     .join('\n')
 
   return (
     <>
       {formPay ? (
         <>
-          {isSuccess ? (
+          {isSuccess && data ? (
             <>
               <S.Title className="margin-bottom">
-                Pedido realizado - Order id
+                Pedido realizado - {data.orderId}
               </S.Title>
               <S.Text>
                 Estamos felizes em informar que seu pedido já está em processo
@@ -206,94 +203,90 @@ const Checkout = ({ onBack, onNext }: Props) => {
                       value={form.values.cardName}
                       onChange={form.handleChange}
                       onBlur={form.handleBlur}
+                      className={checkInputHasError('cardName') ? 'error' : ''}
                     />
-                    <small>
-                      {getErrorMessage('cardName', form.errors.cardName)}
-                    </small>
                   </S.FormInfo>
                   <S.Form as="div" className="row">
                     <S.FormInfo className="one-and-half">
                       <label htmlFor="cardNumber">Número do cartão</label>
-                      <input
+                      <InputMask
                         type="text"
                         id="cardNumber"
                         name="cardNumber"
                         value={form.values.cardNumber}
                         onChange={form.handleChange}
                         onBlur={form.handleBlur}
+                        className={
+                          checkInputHasError('cardNumber') ? 'error' : ''
+                        }
+                        mask="9999 9999 9999 9999"
                       />
-                      <small>
-                        {getErrorMessage('cardNumber', form.errors.cardNumber)}
-                      </small>
                     </S.FormInfo>
                     <S.FormInfo className="half">
                       <label htmlFor="cardCode">CVV</label>
-                      <input
-                        type="number"
+                      <InputMask
+                        type="text"
                         id="cardCode"
                         name="cardCode"
                         value={form.values.cardCode}
                         onChange={form.handleChange}
                         onBlur={form.handleBlur}
+                        className={
+                          checkInputHasError('cardCode') ? 'error' : ''
+                        }
+                        mask="999"
                       />
-                      <small>
-                        {getErrorMessage('cardCode', form.errors.cardCode)}
-                      </small>
                     </S.FormInfo>
                   </S.Form>
                   <S.SubTitle>Data de validade (MM/AAAA)</S.SubTitle>
                   <S.Form as="div" className="row">
                     <S.FormInfo>
                       <label htmlFor="cardExpiresMonth">Mês</label>
-                      <input
-                        type="number"
+                      <InputMask
+                        type="text"
                         id="cardExpiresMonth"
                         name="cardExpiresMonth"
                         value={form.values.cardExpiresMonth}
                         onChange={form.handleChange}
                         onBlur={form.handleBlur}
+                        className={
+                          checkInputHasError('cardExpiresMonth') ? 'error' : ''
+                        }
+                        mask="99"
                       />
-                      <small>
-                        {getErrorMessage(
-                          'cardExpiresMonth',
-                          form.errors.cardExpiresMonth
-                        )}
-                      </small>
                     </S.FormInfo>
                     <S.FormInfo>
                       <label htmlFor="cardExpiresYear">Ano</label>
-                      <input
-                        type="number"
+                      <InputMask
+                        type="text"
                         id="cardExpiresYear"
                         name="cardExpiresYear"
                         value={form.values.cardExpiresYear}
                         onChange={form.handleChange}
                         onBlur={form.handleBlur}
+                        className={
+                          checkInputHasError('cardExpiresYear') ? 'error' : ''
+                        }
+                        mask="9999"
                       />
-                      <small>
-                        {getErrorMessage(
-                          'cardExpiresYear',
-                          form.errors.cardExpiresYear
-                        )}
-                      </small>
                     </S.FormInfo>
                     <S.FormInfo>
                       <label htmlFor="installments">Parcelamento</label>
                       <select id="installments">
-                        <option>1x de R$ 300,00</option>
-                        <option>2x de R$ 150,00</option>
-                        <option>3x de R$ 100,00</option>
+                        <option>{`1x de ${PriceFormat(total)}`}</option>
+                        <option>{`2x de ${PriceFormat(total / 2)}`}</option>
+                        <option>{`3x de ${PriceFormat(total / 3)}`}</option>
                       </select>
                     </S.FormInfo>
                   </S.Form>
                   <FooterShop
-                    ResumeOff={false}
+                    ResumeOff
                     Inactive={false}
                     onNext={() => {
                       form.handleSubmit
-                      if (mensagens.length !== 0) {
+                      if (messages.length !== 0) {
                         alert(
-                          `Os seguintes campos estão invalidos:\n\n${mensagens}`
+                          `Os seguintes campos estão invalidos:\n\n${messages}`
                         )
                       }
                     }}
@@ -302,6 +295,7 @@ const Checkout = ({ onBack, onNext }: Props) => {
                         ? 'Finalizando pagamento...'
                         : 'Finalizar pagamento'
                     }
+                    disabled={isLoading}
                     onBack={() => setFormPay(false)}
                     TextBack="Voltar para edição de endereço"
                   />
@@ -313,7 +307,7 @@ const Checkout = ({ onBack, onNext }: Props) => {
                   </S.SubTitle>
                   <img src={qrcode} alt="codigo QR Code Pix" />
                   <FooterShop
-                    ResumeOff={false}
+                    ResumeOff
                     Inactive={false}
                     onNext={form.handleSubmit}
                     TextNext={
@@ -342,10 +336,8 @@ const Checkout = ({ onBack, onNext }: Props) => {
                 value={form.values.nameReceiver}
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
+                className={checkInputHasError('nameReceiver') ? 'error' : ''}
               />
-              <small>
-                {getErrorMessage('nameReceiver', form.errors.nameReceiver)}
-              </small>
             </S.FormInfo>
             <S.FormInfo>
               <label htmlFor="address">Endereço</label>
@@ -356,8 +348,8 @@ const Checkout = ({ onBack, onNext }: Props) => {
                 value={form.values.address}
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
+                className={checkInputHasError('address') ? 'error' : ''}
               />
-              <small>{getErrorMessage('address', form.errors.address)}</small>
             </S.FormInfo>
             <S.FormInfo>
               <label htmlFor="cityAddress">Cidade</label>
@@ -368,25 +360,24 @@ const Checkout = ({ onBack, onNext }: Props) => {
                 value={form.values.cityAddress}
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
+                className={checkInputHasError('cityAddress') ? 'error' : ''}
               />
-              <small>
-                {getErrorMessage('cityAddress', form.errors.cityAddress)}
-              </small>
             </S.FormInfo>
             <S.Form as="div" className="row">
               <S.FormInfo>
-                <label htmlFor="cepAddress">CEP</label>
-                <input
+                <label htmlFor="zipCodeAddress">CEP</label>
+                <InputMask
                   type="text"
-                  id="cepAddress"
-                  name="cepAddress"
-                  value={form.values.cepAddress}
+                  id="zipCodeAddress"
+                  name="zipCodeAddress"
+                  value={form.values.zipCodeAddress}
                   onChange={form.handleChange}
                   onBlur={form.handleBlur}
+                  className={
+                    checkInputHasError('zipCodeAddress') ? 'error' : ''
+                  }
+                  mask="99.999-99"
                 />
-                <small>
-                  {getErrorMessage('cepAddress', form.errors.cepAddress)}
-                </small>
               </S.FormInfo>
               <S.FormInfo>
                 <label htmlFor="numberAddress">Numero</label>
@@ -397,10 +388,8 @@ const Checkout = ({ onBack, onNext }: Props) => {
                   value={form.values.numberAddress}
                   onChange={form.handleChange}
                   onBlur={form.handleBlur}
+                  className={checkInputHasError('numberAddress') ? 'error' : ''}
                 />
-                <small>
-                  {getErrorMessage('numberAddress', form.errors.numberAddress)}
-                </small>
               </S.FormInfo>
             </S.Form>
             <S.FormInfo>
@@ -412,13 +401,10 @@ const Checkout = ({ onBack, onNext }: Props) => {
                 value={form.values.complementAddress}
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
+                className={
+                  checkInputHasError('complementAddress') ? 'error' : ''
+                }
               />
-              <small>
-                {getErrorMessage(
-                  'complementAddress',
-                  form.errors.complementAddress
-                )}
-              </small>
             </S.FormInfo>
             <FooterShop
               Inactive={false}

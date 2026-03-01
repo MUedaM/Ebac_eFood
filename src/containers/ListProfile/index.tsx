@@ -1,11 +1,14 @@
-import { useState } from 'react'
-import CardProfile from '../../components/CardProfile'
-import { List, ListCont } from './styles'
 import { useParams } from 'react-router-dom'
+import { useState } from 'react'
+
+import CardProfile from '../../components/CardProfile'
 import HeroProfle from '../../components/HeroProfile'
 import PopUp from '../../components/PopUp'
-import { useGetRestauranteByIdQuery } from '../../services/api'
 import Footer from '../../components/Footer'
+
+import { List, ListCont } from './styles'
+import { useGetRestauranteByIdQuery } from '../../services/api'
+import Loader from '../../components/Loader'
 
 export const ListProfile = () => {
   const { id } = useParams()
@@ -13,7 +16,7 @@ export const ListProfile = () => {
   const [selectedId, setSelectedId] = useState<number | null>(null)
 
   if (!perfil) {
-    return null
+    return <Loader />
   }
 
   const getResume = (descricao: string) => {

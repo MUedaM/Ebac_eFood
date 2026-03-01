@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { cores } from '../../styles/global'
+import { colors } from '../../styles/global'
 
 export const Item = styled.li`
-  background-color: ${cores.corTextoSecundario};
+  background-color: ${colors.colorTextSecundary};
   display: flex;
   padding: 8px;
   height: 100px;
@@ -20,7 +20,7 @@ export const Item = styled.li`
   h3 {
     font-size: 18px;
     font-weight: 900;
-    color: ${cores.corTextoPrincipal};
+    color: ${colors.colorTextPrimary};
     margin-bottom: 16px;
   }
 
@@ -51,6 +51,6 @@ export const Trash = styled.div`
 
   &:hover {
     border-radius: 50%;
-    border: 1px solid ${cores.corTextoPrincipal};
+    border: 1px solid ${colors.colorTextPrimary};
   }
 `
