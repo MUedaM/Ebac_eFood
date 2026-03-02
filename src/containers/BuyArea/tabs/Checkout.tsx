@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import * as Yup from 'yup'
 import { useFormik } from 'formik'
 import InputMask from 'react-input-mask'
@@ -13,8 +13,9 @@ import { usePurchaseMutation } from '../../../services/api'
 
 import * as S from '../styles'
 import { PriceFormat } from '../../../utils'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../../store'
+import { clear } from '../../../store/reducers/cart'
 
 type Props = {
   onBack: () => void
@@ -24,8 +25,10 @@ type Props = {
 const Checkout = ({ onBack, onNext }: Props) => {
   const { items } = useSelector((state: RootReducer) => state.cart)
   const total = items.reduce((acc, item) => acc + item.price, 0)
+  const dispatch = useDispatch()
   const [formPay, setFormPay] = useState(false)
   const [methodCard, setMethodCard] = useState(true)
+  const [option, setOption] = useState('1')
   const [purchase, { data, isLoading, isSuccess }] = usePurchaseMutation()
 
   const form = useFormik({
@@ -120,6 +123,10 @@ const Checkout = ({ onBack, onNext }: Props) => {
     }
   })
 
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setOption(event.target.value)
+  }
+
   const hasError = (fieldName: string) => {
     const isTouched = fieldName in form.touched
     const isInvalid = fieldName in form.errors
@@ -134,6 +141,12 @@ const Checkout = ({ onBack, onNext }: Props) => {
     .map((value, index) => `${index + 1} - ${value}`)
     .join('\n')
 
+  useEffect(() => {
+    if (isSuccess) {
+      dispatch(clear())
+    }
+  }, [isSuccess, dispatch])
+
   return (
     <>
       {formPay ? (
@@ -143,6 +156,10 @@ const Checkout = ({ onBack, onNext }: Props) => {
               <S.Title className="margin-bottom">
                 Pedido realizado - {data.orderId}
               </S.Title>
+              <S.SubTitle className="align-center margin-bottom">
+                Metodo de pagamento - {methodCard ? 'Cartão de credito' : 'PIX'}{' '}
+                - {option}x sem juros
+              </S.SubTitle>
               <S.Text>
                 Estamos felizes em informar que seu pedido já está em processo
                 de preparação e, em breve, será entregue no endereço fornecido.
@@ -272,10 +289,20 @@ const Checkout = ({ onBack, onNext }: Props) => {
                     </S.FormInfo>
                     <S.FormInfo>
                       <label htmlFor="installments">Parcelamento</label>
-                      <select id="installments">
-                        <option>{`1x de ${PriceFormat(total)}`}</option>
-                        <option>{`2x de ${PriceFormat(total / 2)}`}</option>
-                        <option>{`3x de ${PriceFormat(total / 3)}`}</option>
+                      <select
+                        id="installments"
+                        value={option}
+                        onChange={handleChange}
+                      >
+                        <option value="1">{`1x de ${PriceFormat(
+                          total
+                        )}`}</option>
+                        <option value="2">{`2x de ${PriceFormat(
+                          total / 2
+                        )}`}</option>
+                        <option value="3">{`3x de ${PriceFormat(
+                          total / 3
+                        )}`}</option>
                       </select>
                     </S.FormInfo>
                   </S.Form>
@@ -376,7 +403,7 @@ const Checkout = ({ onBack, onNext }: Props) => {
                   className={
                     checkInputHasError('zipCodeAddress') ? 'error' : ''
                   }
-                  mask="99.999-99"
+                  mask="99.999-999"
                 />
               </S.FormInfo>
               <S.FormInfo>

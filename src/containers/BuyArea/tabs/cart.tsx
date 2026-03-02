@@ -32,7 +32,7 @@ const Cart = ({ onNext, onBack }: Props) => {
         )}
       </S.Items>
       <FooterShop
-        Inactive={false}
+        Inactive
         ResumeOff={false}
         onNext={onNext}
         TextNext="Continuar com a entrega"

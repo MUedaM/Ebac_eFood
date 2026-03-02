@@ -38,7 +38,7 @@ const FooterShop = ({
       </S.Resume>
       <ButtonMore
         type="submit"
-        className={items.length === 0 || Inactive ? '' : 'visible'}
+        className={items.length === 0 && Inactive ? '' : 'visible'}
         onClick={onNext}
         disabled={disabled}
       >

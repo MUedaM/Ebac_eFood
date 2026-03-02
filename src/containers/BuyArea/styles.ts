@@ -212,6 +212,10 @@ export const FormInfo = styled.div`
     background-color: ${colors.colorTextSecundary};
     height: 100%;
     max-height: 32px;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   &.half {
